@@ -6,6 +6,8 @@ import HomeBtn from './HomeBtn';
 import ServicesBtn from './ServicesBtn';
 import StudioBtn from './StudioBtn';
 import WorldBtn from './WorldBtn';
+import AuthentificationBtn from './AuthentificationBtn';
+
 
 export default function MainMenu() {
   const backgroundColor = useColorModeValue('#f7fafc', '#000123');
@@ -20,6 +22,7 @@ export default function MainMenu() {
           <StudioBtn />
           <WorldBtn />
           <CryptoPartnersBtn />
+          <AuthentificationBtn/>
           {!isMobileView && <DashboardBtn />}
         </ButtonGroup>
       </Flex>
