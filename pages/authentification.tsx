@@ -1,4 +1,4 @@
-import { Box, Checkbox, Flex, Text } from "@chakra-ui/react";
+import { Box, Checkbox, CheckboxGroup, Flex, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import {
   FormControl,
@@ -10,6 +10,7 @@ import {
   HStack,
   VStack,
   Button,
+  Textarea,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -45,22 +46,36 @@ const Authentification: NextPage = () => {
             </FormControl>
 
             <FormControl id="companyName" isRequired>
-              <FormLabel>Nom de l'entreprise </FormLabel>
+              <FormLabel>Nom de l&rsquo;entreprise </FormLabel>
               <Input disabled type="text" name="companyName" />
             </FormControl>
 
             <FormControl id="description" isRequired>
               <FormLabel>Description</FormLabel>
-              <Input type="text" name="description" placeholder="Votre description" />
+              <Textarea name="description" placeholder="Votre description" />
             </FormControl>
 
             <FormControl id="address" isRequired>
               <FormLabel>Adresse</FormLabel>
-              <Input type="text" name="address" placeholder="Votre adresse" />
+              <Input disabled type="text" name="address" placeholder="Votre adresse" />
             </FormControl>
 
             <FormControl id="address" isRequired>
               <Checkbox defaultChecked>Levée de fond </Checkbox>
+            </FormControl>
+
+            <FormControl id="imageUpload" >
+              <FormLabel>Télécharger des images</FormLabel>
+              <Input type="file" accept="image/*" multiple /* onChange={handleImageUpload} */ />
+            </FormControl>
+
+            <FormControl id="label" isRequired>
+              <CheckboxGroup colorScheme="green" defaultValue={["Proof of Impact", "Foundation"]}>
+                <Stack spacing={[1, 5]} direction={["column", "row"]}>
+                  <Checkbox value="Proof of Impact">Proof of Impact</Checkbox>
+                  <Checkbox value="Foundation">Foundation</Checkbox>
+                </Stack>
+              </CheckboxGroup>
             </FormControl>
 
             <Button type="submit" colorScheme="blue" mt={4}>
