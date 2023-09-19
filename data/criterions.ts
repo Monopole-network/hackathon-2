@@ -12,6 +12,7 @@ type criterion = {
     description: string;
 };
 
+// Ne pas oublier de remplir les critères 
 export const criterions: criterion[] = [
     {
         id: uuidv4(),
@@ -24,4 +25,3 @@ export const criterions: criterion[] = [
         description: "",
     }
 ];
-

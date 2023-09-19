@@ -1,0 +1,1 @@
+export const cryptos: [string, string, string, string] = ["MultiversX Testnet", "Polygon Testnet", "Ethereum Testnet", "Avalanche Testnet"];
