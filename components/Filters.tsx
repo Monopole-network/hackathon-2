@@ -1,24 +1,26 @@
+
+import { LABELS_URL, CRYPTOS_URL } from "../routes";
 import React,{useState,useEffect} from 'react';
+
 
 const Filters = () => {
     const [selectedCryptosFilter, setSelectedCryptosFilter] = useState("");
     const [selectedLabelsFilter, setSelectedLabelsFilter] = useState("");
     const [cryptos, setCryptos] = useState([]);
     const [labels, setLabels] = useState([]);
-    //const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState([]);
     //const [selectedProjetTypeFilter, setSelectedProjetTypeFilter] = useState("");
 
-    let urlBase = 'http://localhost:3001/';
     // Recup la liste des labels et cryptos 
     const fetchListCryptosLabels = async () => {
         //fetch labels
-        const responseLabels = await fetch(urlBase+ 'labels');
+        const responseLabels = await fetch(LABELS_URL);
         const dataLabels = await responseLabels.json();
         console.log(dataLabels);
         setLabels(dataLabels);
 
         //fetch cryptos
-        const responseCryptos = await fetch(urlBase+ 'cryptos');
+        const responseCryptos = await fetch(CRYPTOS_URL);
         const dataCryptos = await responseCryptos.json();
         console.log(dataCryptos);
         setCryptos(dataCryptos);
