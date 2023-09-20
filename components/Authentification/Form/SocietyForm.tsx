@@ -2,6 +2,7 @@ import { Box, Checkbox, CheckboxGroup, Flex, Heading, Select, Text } from "@chak
 import type { NextPage } from "next";
 import { FormControl, FormLabel, Input, Stack, HStack, VStack, Button, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
+import SujetForm from "./SujetForm";
 
 const FormSociety: React.FC = () => {
   /* const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ const FormSociety: React.FC = () => {
 
   return (
     <Flex w="100%" backgroundRepeat="no-repeat" backgroundSize="100%" flexDirection="column">
-      <Box w="90%" maxW="514px" mx="auto" color="white" >
+      <Box w="90%" maxW="514px" mx="auto" color="white">
         <Heading as="h1" mb={4}>
           Votre société
         </Heading>
@@ -58,14 +59,15 @@ const FormSociety: React.FC = () => {
               <Select disabled name="continentName" placeholder="Europe" />
             </FormControl>
 
-            <FormControl id="description" isRequired>
+            <SujetForm/>
+            {/*    <FormControl id="description" isRequired>
               <FormLabel>Description</FormLabel>
               <Textarea name="description" placeholder="Votre description" />
             </FormControl>
 
             <FormControl id="imageUpload">
               <FormLabel>Télécharger des images</FormLabel>
-              <Input type="file" accept="image/*" multiple /* onChange={handleImageUpload} */ />
+              <Input type="file" accept="image/*" multiple onChange={handleImageUpload}  />
             </FormControl>
 
             <FormControl id="label" isRequired>
@@ -75,11 +77,7 @@ const FormSociety: React.FC = () => {
                   <Checkbox value="Foundation">Foundation</Checkbox>
                 </Stack>
               </CheckboxGroup>
-            </FormControl>
-
-            <Button type="submit" colorScheme="blue" mt={4}>
-              Soumettre
-            </Button>
+            </FormControl> */}
           </VStack>
         </form>
       </Box>
