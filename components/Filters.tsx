@@ -25,7 +25,7 @@ const Filters = () => {
             address: "70 road Kingston",
             companyName: "Testing Limits",
             crowdfunding: false,
-            labelsID: [1],
+            labelsID: [2],
             cryptosID: [1, 3],
             companyTypeID: 1,
             projectManagers: [
@@ -92,7 +92,63 @@ const Filters = () => {
                 }
             ]
 
-        }
+        },
+        {
+            projectName: "The Green Machine",
+            description: "The 'Green Machine' project is a pioneering venture dedicated to developing eco-friendly transportation technology. Our main focus is on creating innovative and sustainable solutions in the form of electric and hydrogen-powered vehicles.",
+            media: [
+                {
+                    url: "https://testimage.com",
+                    alt: ""
+                },
+                {
+                    url: "https://testimage.com",
+                    alt: ""
+                },
+            ],
+            address: "70 road Melson",
+            companyName: "Green Tech",
+            crowdfunding: true,
+            labelsID: [2],
+            cryptosID: [1,3],
+            companyTypeID: 1,
+            projectManagers: [
+                {
+                    firstName: "Yolene",
+                    lastName: "CONSTABLE",
+                    role: "Head Manager"
+                }
+            ]
+
+        },
+        {
+            projectName: "TEEST MARIA",
+            description: "The 'WorkForce Equality' project is a comprehensive initiative designed to tackle income disparities and promote equal work opportunities.",
+            media: [
+                {
+                    url: "https://testimage.com",
+                    alt: ""
+                },
+                {
+                    url: "https://testimage.com",
+                    alt: ""
+                },
+            ],
+            address: "70 road Kingston",
+            companyName: "TMARIA",
+            crowdfunding: false,
+            labelsID: [2],
+            cryptosID: [3],
+            companyTypeID: 1,
+            projectManagers: [
+                {
+                    firstName: "Yolene",
+                    lastName: "CONSTABLE",
+                    role: "Head Manager"
+                }
+            ]
+
+        },
     ]
     const [selectedCryptosFilter, setSelectedCryptosFilter] = useState(0);
     const [selectedLabelsFilter, setSelectedLabelsFilter] = useState(0);
@@ -132,16 +188,30 @@ const Filters = () => {
 
     const updateFilteredProjects = () => {
         console.log('selectedCryptosFilter : '+selectedCryptosFilter);
+        // on repart d'une base propres
+        let projetsFiltred = projects; 
+        console.log(projetsFiltred);
+
+        // filtrage des projets par cryptos 
         if (selectedCryptosFilter !== 0 && selectedCryptosFilter !== null) {
             console.log('updateFilteredProjects FUNCTION');
             console.log('selectedCryptosFilter : '+selectedCryptosFilter);
-            let projetsFiltred = projects.filter((project) => project.cryptosID.includes(selectedCryptosFilter));
+            projetsFiltred = projects.filter((project) => project.cryptosID.includes(selectedCryptosFilter));
             console.table(projetsFiltred);
-            setSelectedProjects(projetsFiltred);
         }
-        else {
-            setSelectedProjects(projects);
+
+
+        // filtrages des projets par labels 
+        console.log('selectedLabelsFilter : '+selectedLabelsFilter);
+        if (selectedLabelsFilter !== 0 && selectedLabelsFilter !== null) {
+            console.log(projetsFiltred);
+            console.log('updateFilteredProjects FUNCTION');
+            console.log('selectedLabelsFilter : '+selectedLabelsFilter);
+            projetsFiltred = projetsFiltred.filter((project) => project.labelsID.includes(selectedLabelsFilter));
+            console.table(projetsFiltred);
         }
+
+        setSelectedProjects(projetsFiltred);
     }
 
     // update des filtrages des projets
@@ -171,6 +241,7 @@ const Filters = () => {
 
     console.log(selectedCryptosFilter, selectedLabelsFilter)
     console.log(projects);
+    console.log('selectedProjects')
     console.log(selectedProjects);
     return (
             <div>
