@@ -19,4 +19,9 @@ This project is built using the following technologies:
     yarn run dev
     ```
 
+3. Run the JSON server:
+    ```bash
+    json-server --watch db.json --port 3001
+    ```
+
 Visit `http://localhost:3000/` in your browser to see the application running.

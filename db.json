@@ -1,0 +1,155 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Environnemental"
+        },
+        {
+            "id": 2,
+            "name": "Caritatif"
+        },
+        {
+            "id": 3,
+            "name": "Social"
+        },
+        {
+            "id": 4,
+            "name": "Économique"
+        }
+    ],
+    "labels": [
+        {
+            "id": 1,
+            "name": "Proof of Impact"
+        },
+        {
+            "id": 2,
+            "name": "Foundation"
+        }
+    ],
+    "cryptos": [
+        {
+            "id": 1,
+            "name": "MultiversX Testnet"
+        },
+        {
+            "id": 2,
+            "name": "Polygon Testnet"
+        },
+        {
+            "id": 3,
+            "name": "Ethereum Testnet"
+        },
+        {
+            "id": 4,
+            "name": "Avalanche Testnet"
+        }
+    ],
+    "criterions": [
+        {
+            "id": 1,
+            "categoryID": 1,
+            "media": {
+                "url": "../assets/img/sdgs/06.png",
+                "alt": ""
+            },
+            "name": "",
+            "description": ""
+        }
+    ],
+    "companyTypes": [
+        {
+            "id": 1,
+            "name": "Marques"
+        },
+        {
+            "id": 2,
+            "name": "Blockchain"
+        },
+        {
+            "id": 3,
+            "name": "Impact"
+        },
+        {
+            "id": 4,
+            "name": "Start-up"
+        },
+        {
+            "id": 5,
+            "name": "Assocation"
+        }
+    ],
+    "companies": [
+        {
+            "id": 1,
+            "companyName": "Oyope",
+            "companyTypeID": 1,
+            "address": "9th Floor",
+            "projectManager": "Ketti Froschauer"
+        },
+        {
+            "id": 2,
+            "companyName": "Devpulse",
+            "companyTypeID": 2,
+            "address": "Apt 480",
+            "projectManager": "Myra Growy"
+        },
+        {
+            "id": 3,
+            "companyName": "Thoughtstorm",
+            "companyTypeID": 3,
+            "address": "Apt 364",
+            "projectManager": "Hildegarde Physick"
+        },
+        {
+            "id": 4,
+            "companyName": "Shufflester",
+            "companyTypeID": 4,
+            "address": "Suite 60",
+            "projectManager": "Waverley Kentish"
+        },
+        {
+            "id": 5,
+            "companyName": "Twimbo",
+            "companyTypeID": 2,
+            "address": "Room 468",
+            "projectManager": "Amil Banker"
+        },
+        {
+            "id": 6,
+            "companyName": "Skinte",
+            "companyTypeID": 5,
+            "address": "Apt 108",
+            "projectManager": "Pauletta Gosson"
+        },
+        {
+            "id": 7,
+            "companyName": "Centidel",
+            "companyTypeID": 3,
+            "address": "Suite 7",
+            "projectManager": "Cale Szapiro"
+        },
+        {
+            "id": 8,
+            "companyName": "Shuffledrive",
+            "companyTypeID": 4,
+            "address": "10th Floor",
+            "projectManager": "Annetta Hedylstone"
+        },
+        {
+            "id": 9,
+            "companyName": "Thoughtworks",
+            "companyTypeID": 2,
+            "address": "Suite 91",
+            "projectManager": "Lezley Purveys"
+        },
+        {
+            "id": 10,
+            "companyName": "Yoveo",
+            "companyTypeID": 5,
+            "address": "17th Floor",
+            "projectManager": "Merell Bircher"
+        }
+    ],
+    "projects": []
+}

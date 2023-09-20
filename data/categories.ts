@@ -1,1 +1,0 @@
-export const categories: [string, string, string, string] = ["Environnemental", "Charitatif", "Social", "Économique"];
