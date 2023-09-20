@@ -128,16 +128,19 @@ const Filters = () => {
 
     useEffect(() => {
         updateFilteredProjects();        
-    }, [selectedCryptosFilter]);
+    }, [selectedCryptosFilter, selectedLabelsFilter]);
 
     const updateFilteredProjects = () => {
+        console.log('selectedCryptosFilter : '+selectedCryptosFilter);
         if (selectedCryptosFilter !== 0 && selectedCryptosFilter !== null) {
             console.log('updateFilteredProjects FUNCTION');
             console.log('selectedCryptosFilter : '+selectedCryptosFilter);
             let projetsFiltred = projects.filter((project) => project.cryptosID.includes(selectedCryptosFilter));
             console.table(projetsFiltred);
             setSelectedProjects(projetsFiltred);
-    
+        }
+        else {
+            setSelectedProjects(projects);
         }
     }
 
@@ -177,14 +180,14 @@ const Filters = () => {
                         <div>
                             <p>Crypto Monnaie</p>
                             <select onChange={handleChangeFilter} name="cryptos" id="filters__cryptos">
-                                <option value="">CryptoMonnaie</option>
+                                <option value="0">CryptoMonnaie</option>
                                 {cryptos.map((crypto: string) => <option key={crypto.id} value={crypto.id}>{crypto.name}</option>)}
                             </select>
                         </div>
                         <div>
                             <p>Labels</p>
                             <select onChange={handleChangeFilter} name="categories" id="filters__labels">
-                                <option value="">Labels</option>
+                                <option value="0">Labels</option>
                                 {labels.map((label: string) => <option key={label.id} value={label.id}>{label.name}</option>)}
                             </select>
                         </div>
