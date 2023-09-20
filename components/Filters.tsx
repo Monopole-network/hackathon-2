@@ -1,19 +1,36 @@
-
-import {categories} from '../data/categories';
-import {cryptos} from '../data/cryptos';
-import {labels} from '../data/labels';
 import React,{useState,useEffect} from 'react';
 
-// TODO Harmoniser avec le json server 
-// Lancer la commande
-
 const Filters = () => {
-
     const [selectedCryptosFilter, setSelectedCryptosFilter] = useState("");
     const [selectedLabelsFilter, setSelectedLabelsFilter] = useState("");
+    const [cryptos, setCryptos] = useState([]);
+    const [labels, setLabels] = useState([]);
+    //const [categories, setCategories] = useState([]);
     //const [selectedProjetTypeFilter, setSelectedProjetTypeFilter] = useState("");
 
-    //fake data
+    let urlBase = 'http://localhost:3001/';
+    // Recup la liste des labels et cryptos 
+    const fetchListCryptosLabels = async () => {
+        //fetch labels
+        const responseLabels = await fetch(urlBase+ 'labels');
+        const dataLabels = await responseLabels.json();
+        console.log(dataLabels);
+        setLabels(dataLabels);
+
+        //fetch cryptos
+        const responseCryptos = await fetch(urlBase+ 'cryptos');
+        const dataCryptos = await responseCryptos.json();
+        console.log(dataCryptos);
+        setCryptos(dataCryptos);
+        //*/
+      };
+
+    useEffect(() => {
+        fetchListCryptosLabels();
+    }, []);
+
+    
+    //fake data À retirer
     const dataProjets = [
         {
             projectName: "Test projet 2",
@@ -73,7 +90,7 @@ const Filters = () => {
         }
     ]
 
-    // filtrages des projets
+    // update des filtrages des projets
     const handleChangeFilter = (e:any) => {
         const value = e.target.value;
         const filterType = e.target.id.split("_");
@@ -98,14 +115,14 @@ const Filters = () => {
                             <p>Crypto Monnaie</p>
                             <select onChange={handleChangeFilter} name="cryptos" id="filters__cryptos">
                                 <option value="">CryptoMonnaie</option>
-                                {cryptos.map((crypto: string, i: number) => <option key={i} value={crypto}>{crypto}</option>)}
+                                {cryptos.map((crypto: string, i: number) => <option key={i} value={crypto.name}>{crypto.name}</option>)}
                             </select>
                         </div>
                         <div>
                             <p>Labels</p>
                             <select onChange={handleChangeFilter} name="categories" id="filters__labels">
                                 <option value="">Labels</option>
-                                {labels.map((label: string, i:number) => <option key={i} value={label}>{label}</option>)}
+                                {labels.map((label: string, i:number) => <option key={i} value={label.name}>{label.name}</option>)}
                             </select>
                         </div>
 

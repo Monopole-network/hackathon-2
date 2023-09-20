@@ -1,5 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
 import type { NextPage } from "next";
+import Filters from "../components/Filters";
 import { useState, useEffect } from "react";
 import { PROJECTS_URL } from "../routes";
 import { Project } from "../globalTypes";
@@ -46,6 +47,8 @@ const Home: NextPage = () => {
           )}
         </Flex>
       </Box>
+      <Box w="90%" maxW="1200px" mx="auto" pt="20px"></Box>
+      <Filters/>
     </Flex>
   );
 };
