@@ -1,5 +1,5 @@
 
-import { LABELS_URL, CRYPTOS_URL } from "../routes";
+import { LABELS_URL, CRYPTOS_URL, CATEGORIES_URL } from "../routes";
 import React,{useState,useEffect} from 'react';
 
 
@@ -176,10 +176,20 @@ const Filters = () => {
         console.log(dataCryptos);
         setCryptos(dataCryptos);
         //*/        
-      };
+    };
+
+    const fetchListCategoriesLabels = async () => {
+        // Optimiser si temps dispo (boucle for)
+        //fetch categories
+        const responseCategories = await fetch(CATEGORIES_URL);
+        const dataCategories = await responseCategories.json();
+        //console.log(dataLabels);
+        setCategories(dataCategories);
+    };
 
     useEffect(() => {
-        fetchListCryptosLabels();        
+        fetchListCryptosLabels(); 
+        fetchListCategoriesLabels();       
     }, []);
 
     useEffect(() => {
@@ -187,28 +197,25 @@ const Filters = () => {
     }, [selectedCryptosFilter, selectedLabelsFilter]);
 
     const updateFilteredProjects = () => {
-        console.log('selectedCryptosFilter : '+selectedCryptosFilter);
+        //console.log('selectedCryptosFilter : '+selectedCryptosFilter);
         // on repart d'une base propres
         let projetsFiltred = projects; 
-        console.log(projetsFiltred);
+        //console.log(projetsFiltred);
 
         // filtrage des projets par cryptos 
         if (selectedCryptosFilter !== 0 && selectedCryptosFilter !== null) {
-            console.log('updateFilteredProjects FUNCTION');
-            console.log('selectedCryptosFilter : '+selectedCryptosFilter);
+            //console.log('updateFilteredProjects FUNCTION');
+            //console.log('selectedCryptosFilter : '+selectedCryptosFilter);
             projetsFiltred = projects.filter((project) => project.cryptosID.includes(selectedCryptosFilter));
-            console.table(projetsFiltred);
+            //console.table(projetsFiltred);
         }
 
 
         // filtrages des projets par labels 
-        console.log('selectedLabelsFilter : '+selectedLabelsFilter);
+        //console.log('selectedLabelsFilter : '+selectedLabelsFilter);
         if (selectedLabelsFilter !== 0 && selectedLabelsFilter !== null) {
-            console.log(projetsFiltred);
-            console.log('updateFilteredProjects FUNCTION');
-            console.log('selectedLabelsFilter : '+selectedLabelsFilter);
             projetsFiltred = projetsFiltred.filter((project) => project.labelsID.includes(selectedLabelsFilter));
-            console.table(projetsFiltred);
+            //console.table(projetsFiltred);
         }
 
         setSelectedProjects(projetsFiltred);
@@ -216,13 +223,8 @@ const Filters = () => {
 
     // update des filtrages des projets
     const handleChangeFilter = (e:any) => {
-        //console.log(e);
-        //console.log(e.target.value);
         const value = parseInt(e.target.value);
         const filterType = e.target.id.split("_");
-        //console.log(typeof value);
-        //console.log("filtre id value  : "+value);
-        //console.log("before set selectedCryptosFilter : "+selectedCryptosFilter);
 
         switch (filterType[2]) {
             case 'labels':
@@ -232,39 +234,32 @@ const Filters = () => {
                 setSelectedCryptosFilter(value);
             break; 
         }
-
-        //update des projets à filtrer 
-        //console.log("after set selectedCryptosFilter : "+selectedCryptosFilter);
-        //let projetsFiltred = projects.filter((project) => project.cryptosID.includes(selectedCryptosFilter));
-        //setSelectedProjects();
       }
 
     console.log(selectedCryptosFilter, selectedLabelsFilter)
-    console.log(projects);
-    console.log('selectedProjects')
-    console.log(selectedProjects);
+
     return (
             <div>
                 <div>
                     <div>Filtres</div>
                     <div>
-                        <div>
+                        <div id='cryptosList'>
                             <p>Crypto Monnaie</p>
                             <select onChange={handleChangeFilter} name="cryptos" id="filters__cryptos">
                                 <option value="0">CryptoMonnaie</option>
                                 {cryptos.map((crypto: any) => <option key={crypto.id} value={crypto.id}>{crypto.name}</option>)}
                             </select>
                         </div>
-                        <div>
+                        <div id='labelsList'>
                             <p>Labels</p>
-                            <select onChange={handleChangeFilter} name="categories" id="filters__labels">
+                            <select onChange={handleChangeFilter} name="labels" id="filters__labels">
                                 <option value="0">Labels</option>
                                 {labels.map((label: any) => <option key={label.id} value={label.id}>{label.name}</option>)}
                             </select>
                         </div>
 
                         <div id='categoriesList'>
-                            {categories.map((category,i) => <div key={i}>{category}</div>)}
+                            {categories.map((category,i) => <div key={i}>{category.name}</div>)}
                         </div>
                     </div>
                 </div>
