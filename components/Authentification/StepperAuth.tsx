@@ -1,52 +1,102 @@
-import { Box, Flex, Progress, Text, useColorMode } from "@chakra-ui/react";
-
 import {
-  Step,
-  StepDescription,
-  StepIcon,
-  StepIndicator,
-  StepNumber,
-  StepSeparator,
-  StepStatus,
-  StepTitle,
-  Stepper,
-  useSteps,
+  Box,
+  Button,
+  Circle,
+  Flex,
+  Heading,
+  HStack,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Text,
 } from "@chakra-ui/react";
+import { useState } from "react";
+import FormSociety from "./FormSociety";
 
 const steps = [
-  { title: "Votre Société", description: "Contact Info" },
-  { title: "Second", description: "Date & Time" },
-  { title: "Third", description: "Select Rooms" },
+  { title: "KYB", content: "Contenu de la première étape" },
+  { title: "Votre Société", content: "Contenu de la première étape" },
+  { title: "Votre stratégie", content: "Contenu de la deuxième étape" },
+  { title: "Votre maturité digitale", content: "Contenu de la troisième étape" },
+  { title: "Votre buisness model", content: "Contenu de la quatrième étape" },
+  { title: "Votre démarche RSE", content: "Contenu de la cinquième étape" },
 ];
 
-const StepperAuth: React.FC = () => {
-  const { activeStep, setActiveStep } = useSteps({
-    index: 1,
-    count: steps.length,
-  });
-  const activeStepText = steps[activeStep].description;
+const StepperWithProgressBar: React.FC = () => {
+  const [currentStep, setCurrentStep] = useState(0);
 
-  const max = steps.length - 1;
-  const progressPercent = (activeStep / max) * 100;
+  const nextStep = () => {
+    if (currentStep < steps.length - 1) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
   return (
     <>
       <Box>
-        <Text>Ajout de votre projet</Text>
         <Box position="relative">
-          <Stepper size="sm" index={activeStep} gap="0">
-            {steps.map((step, index) => (
-              <Step key={index} gap="0">
-                <StepIndicator bg="white">
-                  <StepStatus complete={<StepIcon />} />
-                </StepIndicator>
-              </Step>
-            ))}
-          </Stepper>
-          <Progress value={progressPercent} position="absolute" height="3px" width="full" top="10px" zIndex={-1} />
+          <Box p={4}>
+            <Heading as="h1" mb={4}>
+              Ajout de votre projet
+            </Heading>
+            <Tabs isLazy index={currentStep}>
+              <TabList>
+                {steps.map((step, index) => (
+                  <Tab key={index} isDisabled={index > currentStep}>
+                    <Box key={index} textAlign="center">
+                    <Circle
+                      size="50px"
+                      borderWidth={2}
+                      borderColor={index < currentStep ? "green.500" : "gray.300"}
+                      bg={index < currentStep ? "green.500" : "white"}
+                      color={index < currentStep ? "white" : "black"}
+                      cursor="pointer"
+                      onClick={() => setCurrentStep(index)}
+                    >
+                      {index }
+                    </Circle>
+                    <Text mt={2}>{step.title}</Text>
+                  </Box>
+                  </Tab>
+                ))}
+              </TabList>
+              <TabPanels>
+                {steps.map((step, index) => (
+                  <TabPanel key={index}>
+                    {index === 0 &&  <Text>FORM KYB</Text>}
+                    {index === 1 && <FormSociety />}
+                    {index === 2 && <Text>Contenu de la deuxième étape</Text>}
+                    {index === 3 && <Text>Contenu de la troisième étape</Text>}
+                    {index === 4 && <Text>Contenu de la quatrième étape</Text>}
+                    {index === 5 && <Text>Contenu de la cinquième étape</Text>}
+                    <HStack mt={4}>
+                      <Button onClick={prevStep} mr={2} isDisabled={currentStep === 0}>
+                        Précédent
+                      </Button>
+                      <Button
+                        onClick={nextStep}
+                        isDisabled={currentStep === steps.length - 1}
+                      >
+                        Suivant
+                      </Button>
+                    </HStack>
+                  </TabPanel>
+                ))}
+              </TabPanels>
+            </Tabs>
+          </Box>
         </Box>
       </Box>
     </>
   );
 };
 
-export default StepperAuth;
+export default StepperWithProgressBar;
