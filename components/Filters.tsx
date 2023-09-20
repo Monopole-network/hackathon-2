@@ -25,8 +25,8 @@ const Filters = () => {
             address: "70 road Kingston",
             companyName: "Testing Limits",
             crowdfunding: false,
-            labelsID: [2],
-            cryptosID: [1, 3],
+            labelsID: [1],
+            cryptosID: [1],
             companyTypeID: 1,
             projectManagers: [
                 {
@@ -54,7 +54,7 @@ const Filters = () => {
             companyName: "Blueprints",
             crowdfunding: false,
             labelsID: [1],
-            cryptosID: [2,4],
+            cryptosID: [2],
             companyTypeID: 1,
             projectManagers: [
                 {
@@ -81,8 +81,8 @@ const Filters = () => {
             address: "70 road Kingston",
             companyName: "Testing Limits 2",
             crowdfunding: false,
-            labelsID: [1],
-            cryptosID: [3],
+            labelsID: [2],
+            cryptosID: [1],
             companyTypeID: 1,
             projectManagers: [
                 {
@@ -110,7 +110,7 @@ const Filters = () => {
             companyName: "Green Tech",
             crowdfunding: true,
             labelsID: [2],
-            cryptosID: [1,3],
+            cryptosID: [2],
             companyTypeID: 1,
             projectManagers: [
                 {
@@ -137,8 +137,8 @@ const Filters = () => {
             address: "70 road Kingston",
             companyName: "TMARIA",
             crowdfunding: false,
-            labelsID: [2],
-            cryptosID: [3],
+            labelsID: [1],
+            cryptosID: [1,2],
             companyTypeID: 1,
             projectManagers: [
                 {
