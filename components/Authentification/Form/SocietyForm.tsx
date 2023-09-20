@@ -1,19 +1,9 @@
-import { Box, Checkbox, CheckboxGroup, Flex, Text } from "@chakra-ui/react";
+import { Box, Checkbox, CheckboxGroup, Flex, Heading, Select, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  Stack,
-  HStack,
-  VStack,
-  Button,
-  Textarea,
-} from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Stack, HStack, VStack, Button, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
 
-
-const FormSociety : React.FC = () => {
+const FormSociety: React.FC = () => {
   /* const [formData, setFormData] = useState({
     nom: "",
     prenom: "",
@@ -36,33 +26,41 @@ const FormSociety : React.FC = () => {
 
   return (
     <Flex w="100%" backgroundRepeat="no-repeat" backgroundSize="100%" flexDirection="column">
-
-
-      <Box w="90%" maxW="800px" mx="auto" color="white" borderWidth="1px" borderRadius="lg">
+      <Box w="90%" maxW="514px" mx="auto" color="white" >
+        <Heading as="h1" mb={4}>
+          Votre société
+        </Heading>
+        <Text>Les informations s’auto-complètent, on récupère ces informations là, grâce à votre KYB. </Text>
         <form>
           <VStack>
             <FormControl id="projectName" isRequired>
-              <FormLabel>Nom du projet</FormLabel>
-              <Input disabled type="text" name="projectName" />
+              <FormLabel>Dénomination légale de votre entreprise</FormLabel>
+              <Input disabled type="text" name="projectName" placeholder="Monopole" />
             </FormControl>
 
-            <FormControl id="companyName" isRequired>
-              <FormLabel>Nom de l&rsquo;entreprise </FormLabel>
-              <Input disabled type="text" name="companyName" />
+            <FormControl id="adress" isRequired>
+              <FormLabel>Adresse postale</FormLabel>
+              <Input disabled type="text" name="adress" placeholder="1 rue du Dahomey" />
+            </FormControl>
+
+            <FormControl id="countryName" isRequired>
+              <FormLabel>Pays</FormLabel>
+              <Select disabled name="countryName" placeholder="France" />
+            </FormControl>
+
+            <FormControl id="CodePostal" isRequired>
+              <FormLabel>Code Postale</FormLabel>
+              <Input disabled type="text" name="CodePostal" placeholder="1 rue du Dahomey" />
+            </FormControl>
+
+            <FormControl id="continentName" isRequired>
+              <FormLabel>Sur quel continent votre siège social se situe-t-il ?</FormLabel>
+              <Select disabled name="continentName" placeholder="Europe" />
             </FormControl>
 
             <FormControl id="description" isRequired>
               <FormLabel>Description</FormLabel>
               <Textarea name="description" placeholder="Votre description" />
-            </FormControl>
-
-            <FormControl id="address" isRequired>
-              <FormLabel>Adresse</FormLabel>
-              <Input disabled type="text" name="address" placeholder="Votre adresse" />
-            </FormControl>
-
-            <FormControl id="address" isRequired>
-              <Checkbox defaultChecked>Levée de fond </Checkbox>
             </FormControl>
 
             <FormControl id="imageUpload">
