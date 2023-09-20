@@ -2,19 +2,24 @@
     "categories": [
         {
             "id": 1,
-            "name": "Environnemental"
+            "name": "Environnemental",
+            "color": "#03CB88"
+
         },
         {
             "id": 2,
-            "name": "Caritatif"
+            "name": "Caritatif",
+            "color": "#EFB74B"
         },
         {
             "id": 3,
-            "name": "Social"
+            "name": "Social",
+            "color": "#FF006B"
         },
         {
             "id": 4,
-            "name": "Économique"
+            "name": "Économique",
+            "color": "#8135FF"
         }
     ],
     "labels": [
