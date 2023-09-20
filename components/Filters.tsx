@@ -2,7 +2,8 @@
 import {categories} from '../data/categories';
 import {cryptos} from '../data/cryptos';
 import {labels} from '../data/labels';
-import React, { useState } from 'react';
+import React,{useState,useEffect} from 'react';
+
 
 const Filters = () => {
 
@@ -11,44 +12,42 @@ const Filters = () => {
     //const [selectedProjetTypeFilter, setSelectedProjetTypeFilter] = useState("");
 
     // filtrages des projets
-    const changeFilter = (filterName:string, filterValue:string) => {
-        console.log("selectedFilter");
-        switch (filterName) {
-            case 'cryptos':
-                setSelectedCryptosFilter(filterValue);
-                console.log(selectedCryptosFilter);
-                break;
+    const handleChangeFilter = (e:any) => {
+        const value = e.target.value;
+        const filterType = e.target.id.split("_");
+        console.log(e);
+        switch (filterType[2]) {
             case 'labels':
-                setSelectedLabelsFilter(filterValue);
-                console.log(selectedLabelsFilter);
-                break;
+                setSelectedLabelsFilter(value);
+            break; 
+            case 'cryptos':
+                setSelectedCryptosFilter(value);
+            break; 
         }
-    }
+      }
 
-    console.log(categories);
-    console.log(cryptos);
-
+    console.log(selectedCryptosFilter, selectedLabelsFilter)
     return (
             <div>
                 <div>Filtres</div>
                 <div>
                     <div>
-                        <p>Catégories</p>
-                        <select name="categories" id="filters__categories">
-                            {categories.map((category) => <option value={category}>{category}</option>)}
-                        </select>
-                    </div>
-                    <div>
                         <p>Crypto Monnaie</p>
-                        <select name="cryptos" id="filters__cryptos">
-                            {cryptos.map((crypto) => <option onClick={() => {changeFilter('cryptos', crypto); }} value={crypto}>{crypto}</option>)}
+                        <select onChange={handleChangeFilter} name="cryptos" id="filters__cryptos">
+                            <option value="">CryptoMonnaie</option>
+                            {cryptos.map((crypto: string, i: number) => <option key={i} value={crypto}>{crypto}</option>)}
                         </select>
                     </div>
                     <div>
                         <p>Labels</p>
-                        <select name="categories" id="filters__labels">
-                            {labels.map((label) => <option onClick={() => changeFilter('labels', label)} value={label}>{label}</option>)}
+                        <select onChange={handleChangeFilter} name="categories" id="filters__labels">
+                            <option value="">Labels</option>
+                            {labels.map((label: string, i:number) => <option key={i} value={label}>{label}</option>)}
                         </select>
+                    </div>
+
+                    <div id='categoriesList'>
+                        {categories.map((category) => <div>{category}</div>)}
                     </div>
                 </div>
             </div>
