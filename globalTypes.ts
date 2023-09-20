@@ -22,6 +22,12 @@ export interface Label {
 export interface Crypto {
   id: number
   name: string
+  icon: Icon
+}
+
+export interface Icon {
+  url: string
+  alt: string
 }
 
 export interface Criterion {

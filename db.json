@@ -35,19 +35,35 @@
     "cryptos": [
         {
             "id": 1,
-            "name": "MultiversX Testnet"
+            "name": "MultiversX Testnet",
+            "icon": {
+                "url": "/assets/svg/multiversX.svg",
+                "alt": "MultiversX Testnet"
+            }
         },
         {
             "id": 2,
-            "name": "Polygon Testnet"
+            "name": "Polygon Testnet",
+            "icon": {
+                "url": "/assets/svg/polygon.svg",
+                "alt": "Polygon Testnet"
+            }
         },
         {
             "id": 3,
-            "name": "Ethereum Testnet"
+            "name": "Ethereum Testnet",
+            "icon": {
+                "url": "/assets/svg/ethereum.svg",
+                "alt": "Ethereum Testnet"
+            }
         },
         {
             "id": 4,
-            "name": "Avalanche Testnet"
+            "name": "Avalanche Testnet",
+            "icon": {
+                "url": "/assets/svg/avalanche.svg",
+                "alt": "Avalanche Testnet"
+            }
         }
     ],
     "criterions": [
