@@ -1,0 +1,13 @@
+.crypto-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.crypto-icon img {
+    width: 11px;
+}

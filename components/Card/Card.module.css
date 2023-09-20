@@ -1,0 +1,89 @@
+.card-project {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 281px;
+    height: 298px;
+    border-radius: 16px;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    padding: 29px 32px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-project-arrow {
+    display: none;
+    width: auto;
+    align-self: flex-end;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.card-project__name,
+.card-project__company {
+    margin-bottom: 14px;
+    z-index: 1;
+}
+
+.card-project__name {
+    margin-top: auto;
+    font-size: 1.2rem;
+}
+
+.card-project__company {
+    font-size: 1.1rem;
+}
+
+.card-project-overlay__description {
+    display: none;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    font-size: 0.8rem;
+    min-height: 55px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.card-project-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    overflow: auto;
+    z-index: 1;
+}
+
+.card-project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 42.19%, rgba(0, 0, 0, 0.00) 100%), transparent 50% / cover no-repeat;
+}
+
+.card-project-cryptos {
+    display: none;
+    min-height: 25px;
+    margin-bottom: 18px;
+    overflow: auto;
+    z-index: 1;
+}
+
+.card-project:hover .card-project-arrow {
+    display: block;
+}
+
+.card-project:hover .card-project-cryptos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.card-project:hover .card-project-overlay__description {
+    display: -webkit-box;
+}

@@ -1,0 +1,11 @@
+.tag-category {
+    font-size: 0.9rem;
+    color: #fff;
+    padding: 2px 14px;
+    border-radius: 12px;
+}
+
+.tag-category.tag-category--large {
+    padding: 5px 25px;
+    cursor: pointer;
+}
