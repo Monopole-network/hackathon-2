@@ -13,6 +13,7 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import StepperAuth from "../components/Authentification/StepperAuth";
 
 const Authentification: NextPage = () => {
   /* const [formData, setFormData] = useState({
@@ -37,6 +38,8 @@ const Authentification: NextPage = () => {
 
   return (
     <Flex w="100%" backgroundRepeat="no-repeat" backgroundSize="100%" flexDirection="column">
+      <StepperAuth />
+
       <Box w="90%" maxW="800px" mx="auto" color="white" borderWidth="1px" borderRadius="lg">
         <form>
           <VStack>
@@ -64,7 +67,7 @@ const Authentification: NextPage = () => {
               <Checkbox defaultChecked>Levée de fond </Checkbox>
             </FormControl>
 
-            <FormControl id="imageUpload" >
+            <FormControl id="imageUpload">
               <FormLabel>Télécharger des images</FormLabel>
               <Input type="file" accept="image/*" multiple /* onChange={handleImageUpload} */ />
             </FormControl>
