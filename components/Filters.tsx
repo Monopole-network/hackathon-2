@@ -215,7 +215,7 @@ const Filters = () => {
     }
 
     // update des filtrages des projets
-    const handleChangeFilter = (e:string) => {
+    const handleChangeFilter = (e:any) => {
         //console.log(e);
         //console.log(e.target.value);
         const value = parseInt(e.target.value);
@@ -252,19 +252,19 @@ const Filters = () => {
                             <p>Crypto Monnaie</p>
                             <select onChange={handleChangeFilter} name="cryptos" id="filters__cryptos">
                                 <option value="0">CryptoMonnaie</option>
-                                {cryptos.map((crypto: string) => <option key={crypto.id} value={crypto.id}>{crypto.name}</option>)}
+                                {cryptos.map((crypto: any) => <option key={crypto.id} value={crypto.id}>{crypto.name}</option>)}
                             </select>
                         </div>
                         <div>
                             <p>Labels</p>
                             <select onChange={handleChangeFilter} name="categories" id="filters__labels">
                                 <option value="0">Labels</option>
-                                {labels.map((label: string) => <option key={label.id} value={label.id}>{label.name}</option>)}
+                                {labels.map((label: any) => <option key={label.id} value={label.id}>{label.name}</option>)}
                             </select>
                         </div>
 
                         <div id='categoriesList'>
-                            {categories.map((category) => <div>{category}</div>)}
+                            {categories.map((category,i) => <div key={i}>{category}</div>)}
                         </div>
                     </div>
                 </div>
