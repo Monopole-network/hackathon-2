@@ -16,6 +16,9 @@ import { useState } from "react";
 import SocietyForm from "./Form/SocietyForm";
 import KYBForm from "./Form/KYBForm";
 import StrategyForm from "./Form/StrategyForm";
+import Maturity from "./Form/MaturityForm";
+import BusinessForm from "./Form/BusinessForm";
+import RSEForm from "./Form/RSEForm";
 
 const steps = [
   { title: "KYB", content: "Contenu de la première étape" },
@@ -45,14 +48,14 @@ const StepperWithProgressBar: React.FC = () => {
     <>
       <Box>
         <Box position="relative">
-          <Box p={4}>
-            <Heading as="h1" mb={4}>
+          <Box border="1px" borderColor="red">
+            <Heading as="h1" mb={4} textAlign='center' fontSize={32}>
               Ajout de votre projet
             </Heading>
-            <Tabs variant='unstyled' index={currentStep}>
-              <TabList>
+            <Tabs variant="unstyled" index={currentStep}>
+              <TabList border="1px" borderColor="red" display="flex" alignItems="center" justifyContent="center">
                 {steps.map((step, index) => (
-                  <Tab key={index} isDisabled={index > currentStep}>
+                  <Tab key={index} isDisabled={index > currentStep} >
                     <Box key={index} textAlign="center">
                       <Circle
                         size="50px"
@@ -73,12 +76,17 @@ const StepperWithProgressBar: React.FC = () => {
               <TabPanels>
                 {steps.map((step, index) => (
                   <TabPanel key={index}>
-                    {index === 0 && <KYBForm />}
-                    {index === 1 && <SocietyForm />}
-                    {index === 2 && <StrategyForm/>}
-                    {index === 3 && <Text>Contenu de la troisième étape</Text>}
-                    {index === 4 && <Text>Contenu de la quatrième étape</Text>}
-                    {index === 5 && <Text>Contenu de la cinquième étape</Text>}
+                    <>
+                      <Box border="1px" borderColor="red" maxW="530px" mx="auto" my="auto">
+                        {index === 0 && <KYBForm />}
+                        {index === 1 && <SocietyForm />}
+                        {index === 2 && <StrategyForm />}
+                        {index === 3 && <Maturity />}
+                        {index === 4 && <BusinessForm/>}
+                        {index === 5 && <RSEForm/>}
+                      </Box>
+                    </>
+
                     <HStack mt={4}>
                       <Button onClick={prevStep} mr={2} isDisabled={currentStep === 0}>
                         Précédent

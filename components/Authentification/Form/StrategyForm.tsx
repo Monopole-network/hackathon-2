@@ -10,7 +10,7 @@ const reorientation_stratégies = ["Oui", "Non","Je ne sais pas", "Non renseign�
 const StrategyForm: React.FC = () => {
   return (
     <Flex w="100%" backgroundRepeat="no-repeat" backgroundSize="100%" flexDirection="column">
-      <Box w="100%" maxW="514px" mx="auto" color="white" >
+      <Box w="100%" mx="auto" >
         <Heading as="h1" mb={4}>
           Votre stratégie
         </Heading>
@@ -42,7 +42,7 @@ const StrategyForm: React.FC = () => {
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {reorientation_stratégies.map((reorientation_stratégie, index) => (
                 <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} borderColor="red">
-                  <Checkbox value={reorientation_stratégie}>{reorientation_stratégie}</Checkbox>
+                  <Checkbox  value={reorientation_stratégie}>{reorientation_stratégie}</Checkbox>
                 </Box>
               ))}
             </Stack>

@@ -8,7 +8,7 @@ const sujets = ["Social", "Économique", "Caritative", "Environnemental"];
 const SujetForm: React.FC = () => {
   return (
     <Flex w="100%" backgroundRepeat="no-repeat" backgroundSize="100%" flexDirection="column">
-      <Box w="90%" maxW="514px" mx="auto" color="white">
+      <Box w="100%"  mx="auto">
         <Heading as="h1" mb={4}>
           Dans quel(s) sujet(s) se placent votre projet ?
         </Heading>

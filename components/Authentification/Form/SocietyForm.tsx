@@ -27,8 +27,8 @@ const FormSociety: React.FC = () => {
 
   return (
     <Flex w="100%" backgroundRepeat="no-repeat" backgroundSize="100%" flexDirection="column">
-      <Box w="90%" maxW="514px" mx="auto" color="white">
-        <Heading as="h1" mb={4}>
+      <Box w="100%" mx="auto" >
+        <Heading as="h1" mb={4} fontSize="32px">
           Votre société
         </Heading>
         <Text>Les informations s’auto-complètent, on récupère ces informations là, grâce à votre KYB. </Text>

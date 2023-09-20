@@ -4,8 +4,8 @@ import { FormControl, FormLabel, Input} from "@chakra-ui/react";
 const FormKYB: React.FC = () => {
   return (
     <Flex w="100%" backgroundRepeat="no-repeat" backgroundSize="100%" flexDirection="column">
-      <Box w="90%" maxW="800px" mx="auto" color="white" borderWidth="1px" borderRadius="lg">
-        <Heading as="h1" mb={4}>
+      <Box w="100%" mx="auto" >
+        <Heading as="h1" mb={4} fontSize={32}>
           Avant de commencer
         </Heading>
         <FormControl isRequired>
