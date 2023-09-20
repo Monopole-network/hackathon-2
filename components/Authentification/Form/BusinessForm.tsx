@@ -1,4 +1,4 @@
-import { Box, Checkbox, CheckboxGroup, Flex, Heading, Radio, RadioGroup, Select, Text } from "@chakra-ui/react";
+import { Box, Checkbox, CheckboxGroup, Flex, Heading, Radio, RadioGroup, Select, Text, Wrap, WrapItem } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { FormControl, FormLabel, Input, Stack, HStack, VStack, Button, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
@@ -27,7 +27,7 @@ const BusinessForm: React.FC = () => {
             <Text>Sur la totalité de vos revenus, quelle est la part de crypto monnaie ? </Text>
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {percentCryptos.map((percentCrypto, index) => (
-                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} borderColor="red">
+                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} >
                   <Checkbox value={percentCrypto}>{percentCrypto}</Checkbox>
                 </Box>
               ))}
@@ -35,13 +35,13 @@ const BusinessForm: React.FC = () => {
           </CheckboxGroup>
           <CheckboxGroup colorScheme="green">
             <Text>Avez-vous générez du chiffre d’affaire sur l’année N-2</Text>
-            <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
+            <Wrap spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {revenus.map((revenu, index) => (
-                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} borderColor="red">
+                <WrapItem key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} >
                   <Checkbox value={revenu}>{revenu}</Checkbox>
-                </Box>
+                </WrapItem>
               ))}
-            </Stack>
+            </Wrap>
           </CheckboxGroup>
         </VStack>
       </Box>

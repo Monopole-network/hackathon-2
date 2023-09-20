@@ -1,4 +1,4 @@
-import { Box, Checkbox, CheckboxGroup, Flex, Heading, Select, Text } from "@chakra-ui/react";
+import { Box, Checkbox, CheckboxGroup, Flex, Heading, Select, Text, Wrap, WrapItem } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { FormControl, FormLabel, Input, Stack, HStack, VStack, Button, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
@@ -14,13 +14,13 @@ const SujetForm: React.FC = () => {
         </Heading>
         <VStack>
           <CheckboxGroup colorScheme="green">
-            <Stack spacing={[1, 5]} direction={["column", "row"]}>
+            <Wrap spacing="0.5rem" >
               {sujets.map((sujet, index) => (
-                <Box key={index} w="100%" border="1px" padding="0.5rem" borderRadius={8} borderColor="red">
+                <WrapItem key={index} maxW="100%" border="1px" padding="0.5rem"borderRadius={8} >
                   <Checkbox value={sujet}>{sujet}</Checkbox>
-                </Box>
+                </WrapItem>
               ))}
-            </Stack>
+            </Wrap>
           </CheckboxGroup>
         </VStack>
       </Box>

@@ -5,6 +5,14 @@ import {
   Flex,
   Heading,
   HStack,
+  Progress,
+  Stack,
+  Step,
+  StepIcon,
+  StepIndicator,
+  Stepper,
+  StepSeparator,
+  StepStatus,
   Tab,
   TabList,
   TabPanel,
@@ -12,7 +20,7 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import SocietyForm from "./Form/SocietyForm";
 import KYBForm from "./Form/KYBForm";
 import StrategyForm from "./Form/StrategyForm";
@@ -21,84 +29,88 @@ import BusinessForm from "./Form/BusinessForm";
 import RSEForm from "./Form/RSEForm";
 
 const steps = [
-  { title: "KYB", content: "Contenu de la première étape" },
-  { title: "Votre Société", content: "Contenu de la première étape" },
-  { title: "Votre stratégie", content: "Contenu de la deuxième étape" },
-  { title: "Votre maturité digitale", content: "Contenu de la troisième étape" },
-  { title: "Votre buisness model", content: "Contenu de la quatrième étape" },
-  { title: "Votre démarche RSE", content: "Contenu de la cinquième étape" },
+  "KYB",
+  "Votre Société",
+  "Votre stratégie",
+  "Votre maturité digitale",
+  "Votre buisness model",
+  "Votre démarche RSE",
 ];
 
 const StepperWithProgressBar: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
 
-  const nextStep = () => {
-    if (currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1);
-    }
+  const handleStepClick = (stepIndex: SetStateAction<number>) => {
+    setActiveStep(stepIndex);
   };
 
-  const prevStep = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-    }
+  const handleNextStep = () => {
+    setActiveStep((prevStep) => prevStep + 1);
   };
+
+  const handlePrevStep = () => {
+    setActiveStep((prevStep) => prevStep - 1);
+  };
+
+  const isLastStep = activeStep === steps.length - 1;
+  const isFirstStep = activeStep === 0;
+
+  const activeStepText = steps[activeStep];
+
+  // Composants à afficher en fonction de l'étape active
+  const stepComponents = [
+    // eslint-disable-next-line react/jsx-key
+    <KYBForm />,
+    // eslint-disable-next-line react/jsx-key
+    <SocietyForm />,
+    // eslint-disable-next-line react/jsx-key
+    <StrategyForm />,
+    // eslint-disable-next-line react/jsx-key
+    <Maturity />,
+    // eslint-disable-next-line react/jsx-key
+    <BusinessForm />,
+    // eslint-disable-next-line react/jsx-key
+    <RSEForm />,
+  ];
 
   return (
     <>
       <Box>
         <Box position="relative">
-          <Box border="1px" borderColor="red">
-            <Heading as="h1" mb={4} textAlign='center' fontSize={32}>
+          <Box>
+            <Heading as="h1" mb={4} textAlign="center" fontSize={32}>
               Ajout de votre projet
             </Heading>
-            <Tabs variant="unstyled" index={currentStep}>
-              <TabList border="1px" borderColor="red" display="flex" alignItems="center" justifyContent="center">
+            <Stack>
+              <Stepper size="sm" index={activeStep} gap="0">
                 {steps.map((step, index) => (
-                  <Tab key={index} isDisabled={index > currentStep} >
-                    <Box key={index} textAlign="center">
-                      <Circle
-                        size="50px"
-                        borderWidth={2}
-                        borderColor={index < currentStep ? "green.500" : "gray.300"}
-                        bg={index < currentStep ? "green.500" : "white"}
-                        color={index < currentStep ? "white" : "black"}
-                        cursor="pointer"
-                        onClick={() => setCurrentStep(index)}
-                      >
-                        {index}
-                      </Circle>
-                      <Text mt={2}>{step.title}</Text>
-                    </Box>
-                  </Tab>
+                  <>
+                    <Text textAlign="center">{step}</Text>
+                    <Step key={index}  onClick={() => handleStepClick(index)}>
+                      <StepIndicator>
+                        <StepStatus complete={<StepIcon />} />
+                      </StepIndicator>
+                      {index < steps.length - 1 && <StepSeparator />}
+                    </Step>
+                  </>
                 ))}
-              </TabList>
-              <TabPanels>
-                {steps.map((step, index) => (
-                  <TabPanel key={index}>
-                    <>
-                      <Box border="1px" borderColor="red" maxW="530px" mx="auto" my="auto">
-                        {index === 0 && <KYBForm />}
-                        {index === 1 && <SocietyForm />}
-                        {index === 2 && <StrategyForm />}
-                        {index === 3 && <Maturity />}
-                        {index === 4 && <BusinessForm/>}
-                        {index === 5 && <RSEForm/>}
-                      </Box>
-                    </>
-
-                    <HStack mt={4}>
-                      <Button onClick={prevStep} mr={2} isDisabled={currentStep === 0}>
-                        Précédent
-                      </Button>
-                      <Button onClick={nextStep} isDisabled={currentStep === steps.length - 1}>
-                        Suivant
-                      </Button>
-                    </HStack>
-                  </TabPanel>
-                ))}
-              </TabPanels>
-            </Tabs>
+              </Stepper>
+              <Box border="1px" borderRadius="12px" w="530px" mx="auto" my="auto">
+                {stepComponents[activeStep]}
+              </Box>
+              <HStack justifyContent="center" mt={4}>
+                {!isFirstStep && (
+                  <Button onClick={handlePrevStep} colorScheme="blue">
+                    Précédent
+                  </Button>
+                )}
+                {!isLastStep && (
+                  <Button onClick={handleNextStep} colorScheme="blue">
+                    Suivant
+                  </Button>
+                )}
+              </HStack>
+            </Stack>
           </Box>
         </Box>
       </Box>

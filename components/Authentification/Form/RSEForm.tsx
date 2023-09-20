@@ -43,7 +43,7 @@ const RSEForm: React.FC = () => {
             <Text>Avez-vous mis en place une politique d’éco gestes en entreprise ? </Text>
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {ecoGests.map((ecoGest, index) => (
-                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} borderColor="red">
+                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} >
                   <Checkbox value={ecoGest}>{ecoGest}</Checkbox>
                 </Box>
               ))}
@@ -54,7 +54,7 @@ const RSEForm: React.FC = () => {
             <Text>Avez-vous mis en place une politique d'égalité salariale Hommes / Femmes ? </Text>
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {salaryEqualities.map((salaryEquality, index) => (
-                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} borderColor="red">
+                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} >
                   <Checkbox value={salaryEquality}>{salaryEquality}</Checkbox>
                 </Box>
               ))}
@@ -65,7 +65,7 @@ const RSEForm: React.FC = () => {
             <Text>Avez-vous mis en place une charte RSE? </Text>
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {RSECharts.map((RSEChart, index) => (
-                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} borderColor="red">
+                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} >
                   <Checkbox value={RSEChart}>{RSEChart}</Checkbox>
                 </Box>
               ))}
@@ -75,13 +75,11 @@ const RSEForm: React.FC = () => {
           <CheckboxGroup colorScheme="green">
             <Text>Parmis les ODD suivants relatif à l'aspect sociétal sur lesquels travaillez-vous déja ?</Text>
             <Wrap spacing={0.5}>
-              <WrapItem>
-                {ODDs.map((ODD, index) => (
-                  <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} borderColor="red">
-                    <Checkbox value={ODD}>{ODD}</Checkbox>
-                  </Box>
-                ))}
-              </WrapItem>
+              {ODDs.map((ODD, index) => (
+                <WrapItem key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} >
+                  <Checkbox value={ODD}>{ODD}</Checkbox>
+                </WrapItem>
+              ))}
             </Wrap>
           </CheckboxGroup>
         </VStack>

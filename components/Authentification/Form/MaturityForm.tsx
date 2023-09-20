@@ -1,4 +1,4 @@
-import { Box, Checkbox, CheckboxGroup, Flex, Heading, Radio, RadioGroup, Select, Text } from "@chakra-ui/react";
+import { Box, Checkbox, CheckboxGroup, Flex, Heading, Radio, RadioGroup, Select, Text, Wrap, WrapItem } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { FormControl, FormLabel, Input, Stack, HStack, VStack, Button, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
@@ -35,23 +35,23 @@ const Maturity: React.FC = () => {
           </RadioGroup>
           <CheckboxGroup colorScheme="green">
             <Text>Besoin d’une réorientation stratégique ?</Text>
-            <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
+            <Wrap spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {blockchainKnowledges.map((blockchainKnowledge, index) => (
-                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} borderColor="red">
+                <WrapItem key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
                   <Checkbox value={blockchainKnowledge}>{blockchainKnowledge}</Checkbox>
-                </Box>
+                </WrapItem>
               ))}
-            </Stack>
+            </Wrap>
           </CheckboxGroup>
           <CheckboxGroup colorScheme="green">
             <Text>Avez vous déja réalisé des audits de cyber-sécurité pour votre société ?</Text>
-            <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
+            <Wrap spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {securityAudits.map((securityAudit, index) => (
-                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} borderColor="red">
+                <WrapItem key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} >
                   <Checkbox value={securityAudit}>{securityAudit}</Checkbox>
-                </Box>
+                </WrapItem>
               ))}
-            </Stack>
+            </Wrap>
           </CheckboxGroup>
         </VStack>
       </Box>

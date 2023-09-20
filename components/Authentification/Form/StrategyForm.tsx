@@ -19,7 +19,7 @@ const StrategyForm: React.FC = () => {
             <Text>Type de clients</Text>
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {clientsTypes.map((client, index) => (
-                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} borderColor="red">
+                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} >
                   <Checkbox value={client}>{client}</Checkbox>
                 </Box>
               ))}
@@ -41,7 +41,7 @@ const StrategyForm: React.FC = () => {
             <Text>Besoin d’une réorientation stratégique ?</Text>
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {reorientation_stratégies.map((reorientation_stratégie, index) => (
-                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} borderColor="red">
+                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} >
                   <Checkbox  value={reorientation_stratégie}>{reorientation_stratégie}</Checkbox>
                 </Box>
               ))}
