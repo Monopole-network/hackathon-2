@@ -1,0 +1,22 @@
+.banner__tag {
+    color: #fff;
+    font-size: .8rem;
+    padding: .8rem 2rem;
+    border-radius: 1rem;
+}
+
+.banner__tag--social {
+    background-color: #B80058;
+}
+
+.banner__tag--economical {
+    background-color: #DCCC3C;
+}
+
+.banner__tag--caritative {
+    background-color: #672BD4;
+}
+
+.banner__tag--environmental {
+    background-color: #02A374;
+}
