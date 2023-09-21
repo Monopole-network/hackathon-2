@@ -27,6 +27,7 @@ const Filters = () => {
             crowdfunding: false,
             labelsID: [1],
             cryptosID: [1],
+            categoriesID: [1],
             companyTypeID: 1,
             projectManagers: [
                 {
@@ -55,6 +56,7 @@ const Filters = () => {
             crowdfunding: false,
             labelsID: [1],
             cryptosID: [2],
+            categoriesID: [2],
             companyTypeID: 1,
             projectManagers: [
                 {
@@ -83,6 +85,7 @@ const Filters = () => {
             crowdfunding: false,
             labelsID: [2],
             cryptosID: [1],
+            categoriesID: [3],
             companyTypeID: 1,
             projectManagers: [
                 {
@@ -111,6 +114,7 @@ const Filters = () => {
             crowdfunding: true,
             labelsID: [2],
             cryptosID: [2],
+            categoriesID: [4],
             companyTypeID: 1,
             projectManagers: [
                 {
@@ -139,6 +143,7 @@ const Filters = () => {
             crowdfunding: false,
             labelsID: [1],
             cryptosID: [1,2],
+            categoriesID: [4],
             companyTypeID: 1,
             projectManagers: [
                 {
@@ -149,13 +154,14 @@ const Filters = () => {
             ]
 
         },
+        
     ]
+    const [selectedCategory, setSelectedCategory] = useState([]);
     const [selectedCryptosFilter, setSelectedCryptosFilter] = useState(0);
     const [selectedLabelsFilter, setSelectedLabelsFilter] = useState(0);
     const [cryptos, setCryptos] = useState([]);
     const [labels, setLabels] = useState([]);
     const [categories, setCategories] = useState([]);
-    //const [selectedProjetTypeFilter, setSelectedProjetTypeFilter] = useState("");
     const [projects, setProjects] = useState(dataInitialProjets);
     const [selectedProjects, setSelectedProjects] = useState(dataInitialProjets);
 
@@ -192,33 +198,95 @@ const Filters = () => {
         fetchListCategoriesLabels();       
     }, []);
 
-    useEffect(() => {
-        updateFilteredProjects();        
-    }, [selectedCryptosFilter, selectedLabelsFilter]);
-
-    const updateFilteredProjects = () => {
+    const updateFilteredProjectsByCryptoLabel = () => {
+        console.log('updateFilteredProjectsByCryptoLabel()');
         //console.log('selectedCryptosFilter : '+selectedCryptosFilter);
-        // on repart d'une base propres
-        let projetsFiltred = projects; 
-        //console.log(projetsFiltred);
+        // on repart d'une base propre
+        let projetsFiltred = selectedProjects; 
+        console.log("projets filtrés par categories");
+        console.log(projetsFiltred);
+
+
+        console.log("selectedCryptosFilter");
+        console.log(selectedCryptosFilter);
 
         // filtrage des projets par cryptos 
         if (selectedCryptosFilter !== 0 && selectedCryptosFilter !== null) {
             //console.log('updateFilteredProjects FUNCTION');
-            //console.log('selectedCryptosFilter : '+selectedCryptosFilter);
-            projetsFiltred = projects.filter((project) => project.cryptosID.includes(selectedCryptosFilter));
-            //console.table(projetsFiltred);
+            console.log('selectedCryptosFilter : '+selectedCryptosFilter);
+            projetsFiltred = selectedProjects.filter((project) => project.cryptosID.includes(selectedCryptosFilter));
+            console.table(projetsFiltred);
         }
 
+
+        console.log("selectedLabelsFilter");
+        console.log(selectedLabelsFilter);
 
         // filtrages des projets par labels 
         //console.log('selectedLabelsFilter : '+selectedLabelsFilter);
         if (selectedLabelsFilter !== 0 && selectedLabelsFilter !== null) {
             projetsFiltred = projetsFiltred.filter((project) => project.labelsID.includes(selectedLabelsFilter));
-            //console.table(projetsFiltred);
+            console.table(projetsFiltred);
         }
 
         setSelectedProjects(projetsFiltred);
+        console.log(projetsFiltred);
+    }
+
+    const updateCategoryFilter  = (categoryID:never) => {
+        let categoriesFilters = selectedCategory; 
+        if (!categoriesFilters.includes(categoryID)) { // si l'id de la catégorie n'est pas présent dans le tableau -> insert 
+            categoriesFilters.push(categoryID);
+        }
+        else { // sinon l'insérer
+            const index = categoriesFilters.indexOf(categoryID);
+            categoriesFilters.splice(index, 1);
+        }
+        setSelectedCategory(categoriesFilters);
+        console.log(selectedCategory);
+        filterProjectsByCategory();
+    }
+
+    const filterProjectsByCategory = () => {
+        console.log('filterProjectsByCategory ()');
+        console.log('selectedCategory');
+        console.log(selectedCategory);
+
+        //let projectedAlreadyFiltered = selectedProjects;
+        let projectedAlreadyFiltered = projects;
+        //console.log(projectedAlreadyFiltered);
+
+        if (selectedCategory.length === 0) {
+            console.log('no categories selected');
+            console.log(projects);
+            setSelectedProjects(projects);
+        } else {
+            console.log('categories selected');
+            /*
+            const filteredProjects = projects.filter((project) =>
+              selectedCategory.every((categoryId) =>
+                project.categoriesID.includes(categoryId)
+              )
+            );//*/
+            let filteredProjects:any[]=[];
+
+            for (let i=0; i<projects.length; i++) {
+                let addProject:boolean = false;
+                for (let j=0; j<selectedCategory.length; j++) {
+                    if (projectedAlreadyFiltered[i].categoriesID.includes(selectedCategory[j])) {
+                        addProject = true;
+                    }
+                }
+    
+                if (addProject) {
+                    filteredProjects.push(projectedAlreadyFiltered[i]);
+                }
+            }
+            setSelectedProjects(filteredProjects);
+            console.log(filteredProjects);
+          }
+         console.log(selectedProjects);
+       
     }
 
     // update des filtrages des projets
@@ -234,10 +302,18 @@ const Filters = () => {
                 setSelectedCryptosFilter(value);
             break; 
         }
-      }
+    }
 
-    console.log(selectedCryptosFilter, selectedLabelsFilter)
+    useEffect(() => {
+        console.log("state filters has CHANGED");
+        filterProjectsByCategory();
+        updateFilteredProjectsByCryptoLabel(); 
+        console.log('_____________________________________');
+               
+    }, [selectedCryptosFilter, selectedLabelsFilter, selectedCategory]);
 
+
+    // TODO Harmoniser les labels avec le composant de Yolene (implémenter le param pour la couleur fin la renseigner)
     return (
             <div>
                 <div>
@@ -259,15 +335,17 @@ const Filters = () => {
                         </div>
 
                         <div id='categoriesList'>
-                            {categories.map((category,i) => <div key={i}>{category.name}</div>)}
+                            {categories.map((category:any,i:any) => <div onClick={()=>updateCategoryFilter(category.id)} key={i}>{category.name}</div>)}
                         </div>
                     </div>
                 </div>
 
                 <div>----------------------------------</div>
                 <div>
-                    <div>Projets</div>
-                    <div>{selectedProjects.map((projet,i)=> <div key={i}>{projet.projectName}</div>)}</div>
+                    <div >Projets</div>
+                    <div id='projectsContainer_projectsList'>
+                        {selectedProjects.map((projet,i)=> <div key={i}>{projet.projectName}</div>)}
+                    </div>
                 </div>
             </div>
     );
