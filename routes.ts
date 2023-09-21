@@ -1,4 +1,5 @@
-const HOME_URL: string = "https://7fa2-195-135-0-87.ngrok-free.app/";
+//const HOME_URL: string = "https://7fa2-195-135-0-87.ngrok-free.app/";
+const HOME_URL: string = "http://localhost:3001";
 export const PROJECTS_URL: string = `${HOME_URL}/projects`;
 export const LABELS_URL: string = `${HOME_URL}/labels`;
 export const CRYPTOS_URL: string = `${HOME_URL}/cryptos`;
