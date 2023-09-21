@@ -57,6 +57,16 @@ const StepperWithProgressBar: React.FC = () => {
 
   const activeStepText = steps[activeStep];
 
+  const [formData, setFormData] = useState({
+    clientsTypes: [],
+    continent: null,
+    reorientationStratégies: [],
+  });
+  const handleFormSubmit = () => {
+    // Envoyez les données où vous le souhaitez (par exemple, à une autre page ou un backend)
+    console.log("Données du formulaire envoyées :", formData);
+  };
+
   // Composants à afficher en fonction de l'étape active
   const stepComponents = [
     // eslint-disable-next-line react/jsx-key
@@ -64,13 +74,19 @@ const StepperWithProgressBar: React.FC = () => {
     // eslint-disable-next-line react/jsx-key
     <SocietyForm />,
     // eslint-disable-next-line react/jsx-key
-    <StrategyForm />,
+  
     // eslint-disable-next-line react/jsx-key
     <Maturity />,
     // eslint-disable-next-line react/jsx-key
     <BusinessForm />,
     // eslint-disable-next-line react/jsx-key
     <RSEForm />,
+
+    // eslint-disable-next-line react/jsx-key
+    <StrategyForm
+    formData={formData} // Passez les données en tant que props
+    setFormData={setFormData} // Passez la fonction pour mettre à jour les données en tant que props
+  />
   ];
 
   return (
@@ -86,7 +102,7 @@ const StepperWithProgressBar: React.FC = () => {
                 {steps.map((step, index) => (
                   <>
                     <Text textAlign="center">{step}</Text>
-                    <Step key={index}  onClick={() => handleStepClick(index)}>
+                    <Step key={index} onClick={() => handleStepClick(index)}>
                       <StepIndicator>
                         <StepStatus complete={<StepIcon />} />
                       </StepIndicator>
@@ -107,6 +123,11 @@ const StepperWithProgressBar: React.FC = () => {
                 {!isLastStep && (
                   <Button onClick={handleNextStep} colorScheme="blue">
                     Suivant
+                  </Button>
+                )}
+                {isLastStep && (
+                  <Button onClick={handleFormDataSubmit} colorScheme="blue">
+                    Enregistrer
                   </Button>
                 )}
               </HStack>
