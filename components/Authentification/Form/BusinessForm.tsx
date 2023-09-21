@@ -37,7 +37,10 @@ const BusinessForm: React.FC = ({ formData, setFormData }: any) => {
     // Mettez à jour formData avec la valeur sélectionnée pour l'échelle de connaissances blockchain
     setFormData((prevData: any) => ({
       ...prevData,
-      percentCryptos: selectedValue,
+      Business: {
+        ...prevData.Business,
+        percentCryptos: selectedValue,
+      },
     }));
   };
 
@@ -46,7 +49,10 @@ const BusinessForm: React.FC = ({ formData, setFormData }: any) => {
     // Mettez à jour formData avec les connaissances blockchain sélectionnées
     setFormData((prevData: any) => ({
       ...prevData,
-      revenus: selected,
+      Business: {
+        ...prevData.Business,
+        revenus: selected,
+      },
     }));
   };
 
@@ -54,7 +60,10 @@ const BusinessForm: React.FC = ({ formData, setFormData }: any) => {
     // Mettez à jour formData avec les connaissances blockchain sélectionnées
     setFormData((prevData: any) => ({
       ...prevData,
-      businessPlan: selected,
+      Business: {
+        ...prevData.Business,
+        businessPlan: selected,
+      },
     }));
   };
 

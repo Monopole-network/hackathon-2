@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -16,7 +16,7 @@ import {
 import SocietyForm from "./Form/SocietyForm";
 import KYBForm from "./Form/KYBForm";
 import StrategyForm from "./Form/StrategyForm";
-import Maturity from "./Form/MaturityForm";
+import MaturityForm from "./Form/MaturityForm";
 import BusinessForm from "./Form/BusinessForm";
 import RSEForm from "./Form/RSEForm";
 
@@ -29,15 +29,18 @@ const steps = [
   "Votre démarche RSE",
 ];
 
+
+
 const StepperWithProgressBar = () => {
   const [activeStep, setActiveStep] = useState(0);
-
+  const [projects, setProjects]= useState("")
   const handleStepClick = (stepIndex: React.SetStateAction<number>) => {
     setActiveStep(stepIndex);
   };
 
   const handleNextStep = () => {
     setActiveStep((prevStep) => prevStep + 1);
+    console.log(formData);
   };
 
   const handlePrevStep = () => {
@@ -47,7 +50,14 @@ const StepperWithProgressBar = () => {
   const isLastStep = activeStep === steps.length - 1;
   const isFirstStep = activeStep === 0;
 
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    KYB: {},
+    Society: {},
+    Strategy: {},
+    Maturity: {},
+    Business: {},
+    RSE: {},
+  });
 
   const handleFormDataSubmit = async () => {
     // Envoyez les données du formulaire au serveur
@@ -73,11 +83,22 @@ const StepperWithProgressBar = () => {
     }
   };
 
+  const fetchCategories = async () => {
+    const URL = "http://localhost:3001/projects";
+    const response = await fetch(URL);
+    const data = await response.json();
+
+    setProjects(data);
+  };
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
   const stepComponents = [
     <KYBForm formData={formData} setFormData={setFormData} />,
     <SocietyForm formData={formData} setFormData={setFormData} />,
     <StrategyForm formData={formData} setFormData={setFormData} />,
-    <Maturity formData={formData} setFormData={setFormData} />,
+    <MaturityForm formData={formData} setFormData={setFormData} />,
     <BusinessForm formData={formData} setFormData={setFormData} />,
     <RSEForm formData={formData} setFormData={setFormData} />,
   ];
@@ -85,7 +106,6 @@ const StepperWithProgressBar = () => {
   const handleTestFormData = () => {
     console.log("Données du formulaire :", formData);
   };
-
 
   return (
     <Box>
@@ -98,8 +118,10 @@ const StepperWithProgressBar = () => {
             <Stepper size="sm" index={activeStep} gap="0">
               {steps.map((step, index) => (
                 <>
-                  <Text textAlign="center">{step}</Text>
-                  <Step key={index} onClick={() => handleStepClick(index)}>
+                  <Text key={step} textAlign="center">
+                    {step}
+                  </Text>
+                  <Step key={step} onClick={() => handleStepClick(index)}>
                     <StepIndicator>
                       <StepStatus complete={<StepIcon />} />
                     </StepIndicator>
@@ -128,9 +150,9 @@ const StepperWithProgressBar = () => {
                 </Button>
               )}
             </HStack>
-            <Button onClick={handleTestFormData} colorScheme="green">
-            Tester l&rsquo;enregistrement
-          </Button>
+            <Button onClick={fetchCategories} colorScheme="green">
+              Tester l&rsquo;enregistrement
+            </Button>
           </Stack>
         </Box>
       </Box>

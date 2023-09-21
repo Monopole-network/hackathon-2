@@ -1,240 +1,167 @@
 {
-    "categories": [
-        {
-            "id": 1,
-            "name": "Environnemental",
-            "color": "#03CB88"
-        },
-        {
-            "id": 2,
-            "name": "Caritatif",
-            "color": "#EFB74B"
-        },
-        {
-            "id": 3,
-            "name": "Social",
-            "color": "#FF006B"
-        },
-        {
-            "id": 4,
-            "name": "Économique",
-            "color": "#8135FF"
-        }
-    ],
-    "labels": [
-        {
-            "id": 1,
-            "name": "Proof of Impact"
-        },
-        {
-            "id": 2,
-            "name": "Foundation"
-        }
-    ],
-    "cryptos": [
-        {
-            "id": 1,
-            "name": "MultiversX Testnet",
-            "icon": {
-                "url": "/assets/svg/multiversX.svg",
-                "alt": "MultiversX Testnet"
-            }
-        },
-        {
-            "id": 2,
-            "name": "Polygon Testnet",
-            "icon": {
-                "url": "/assets/svg/polygon.svg",
-                "alt": "Polygon Testnet"
-            }
-        },
-        {
-            "id": 3,
-            "name": "Ethereum Testnet",
-            "icon": {
-                "url": "/assets/svg/ethereum.svg",
-                "alt": "Ethereum Testnet"
-            }
-        },
-        {
-            "id": 4,
-            "name": "Avalanche Testnet",
-            "icon": {
-                "url": "/assets/svg/avalanche.svg",
-                "alt": "Avalanche Testnet"
-            }
-        }
-    ],
-    "criterions": [
-        {
-            "id": 1,
-            "categoryID": 1,
-            "media": {
-                "url": "../assets/img/sdgs/06.png",
-                "alt": ""
-            },
-            "name": "",
-            "description": ""
-        }
-    ],
-    "companyTypes": [
-        {
-            "id": 1,
-            "name": "Marques"
-        },
-        {
-            "id": 2,
-            "name": "Blockchain"
-        },
-        {
-            "id": 3,
-            "name": "Impact"
-        },
-        {
-            "id": 4,
-            "name": "Start-up"
-        },
-        {
-            "id": 5,
-            "name": "Assocation"
-        }
-    ],
-    "companies": [
-        {
-            "id": 1,
-            "companyName": "Oyope",
-            "companyTypeID": 1,
-            "address": "9th Floor"
-        },
-        {
-            "id": 2,
-            "companyName": "Devpulse",
-            "companyTypeID": 2,
-            "address": "Apt 480"
-        },
-        {
-            "id": 3,
-            "companyName": "Thoughtstorm",
-            "companyTypeID": 3,
-            "address": "Apt 364"
-        },
-        {
-            "id": 4,
-            "companyName": "Shufflester",
-            "companyTypeID": 4,
-            "address": "Suite 60"
-        },
-        {
-            "id": 5,
-            "companyName": "Twimbo",
-            "companyTypeID": 2,
-            "address": "Room 468"
-        },
-        {
-            "id": 6,
-            "companyName": "Skinte",
-            "companyTypeID": 5,
-            "address": "Apt 108"
-        },
-        {
-            "id": 7,
-            "companyName": "Centidel",
-            "companyTypeID": 3,
-            "address": "Suite 7"
-        },
-        {
-            "id": 8,
-            "companyName": "Shuffledrive",
-            "companyTypeID": 4,
-            "address": "10th Floor"
-        },
-        {
-            "id": 9,
-            "companyName": "Thoughtworks",
-            "companyTypeID": 2,
-            "address": "Suite 91"
-        },
-        {
-            "id": 10,
-            "companyName": "Yoveo",
-            "companyTypeID": 5,
-            "address": "17th Floor"
-        }
-    ],
-    "projects": [
-        {
-            "id": 1,
-            "projectName": "Projet 1",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "medias": [
-                {
-                    "url": "https://source.unsplash.com/random?environment",
-                    "alt": "Ceci est une image de projet"
-                },
-                {
-                    "url": "https://source.unsplash.com/random?environment",
-                    "alt": "Ceci est une image de projet"
-                }
-            ],
-            "address": "Bla bla bla",
-            "companyID": 2,
-            "crowdfunding": false,
-            "categoriesID": [
-                1
-            ],
-            "labelsID": [
-                1
-            ],
-            "cryptosID": [
-                1,
-                2,
-                3,
-                4
-            ],
-            "companyTypeID": 1,
-            "projectManagers": [
-                {
-                    "firstName": "",
-                    "lastName": "",
-                    "role": ""
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "projectName": "Projet 2",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "medias": [
-                {
-                    "url": "https://source.unsplash.com/random?charity",
-                    "alt": "Ceci est une image de projet"
-                },
-                {
-                    "url": "https://source.unsplash.com/random?charity",
-                    "alt": "Ceci est une image de projet"
-                }
-            ],
-            "address": "Bla bla bla",
-            "companyID": 5,
-            "crowdfunding": false,
-            "categoriesID": [
-                2
-            ],
-            "labelsID": [
-                1,
-                2
-            ],
-            "cryptosID": [
-                1
-            ],
-            "companyTypeID": 4,
-            "projectManagers": [
-                {
-                    "firstName": "",
-                    "lastName": "",
-                    "role": ""
-                }
-            ]
-        }
-    ]
+  "categories": [
+    {
+      "id": 1,
+      "name": "Environnemental",
+      "color": "#03CB88"
+    },
+    {
+      "id": 2,
+      "name": "Caritatif",
+      "color": "#EFB74B"
+    },
+    {
+      "id": 3,
+      "name": "Social",
+      "color": "#FF006B"
+    },
+    {
+      "id": 4,
+      "name": "Économique",
+      "color": "#8135FF"
+    }
+  ],
+  "labels": [
+    {
+      "id": 1,
+      "name": "Proof of Impact"
+    },
+    {
+      "id": 2,
+      "name": "Foundation"
+    }
+  ],
+  "cryptos": [
+    {
+      "id": 1,
+      "name": "MultiversX Testnet",
+      "icon": {
+        "url": "/assets/svg/multiversX.svg",
+        "alt": "MultiversX Testnet"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Polygon Testnet",
+      "icon": {
+        "url": "/assets/svg/polygon.svg",
+        "alt": "Polygon Testnet"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Ethereum Testnet",
+      "icon": {
+        "url": "/assets/svg/ethereum.svg",
+        "alt": "Ethereum Testnet"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Avalanche Testnet",
+      "icon": {
+        "url": "/assets/svg/avalanche.svg",
+        "alt": "Avalanche Testnet"
+      }
+    }
+  ],
+  "criterions": [
+    {
+      "id": 1,
+      "categoryID": 1,
+      "media": {
+        "url": "../assets/img/sdgs/06.png",
+        "alt": ""
+      },
+      "name": "",
+      "description": ""
+    }
+  ],
+  "companyTypes": [
+    {
+      "id": 1,
+      "name": "Marques"
+    },
+    {
+      "id": 2,
+      "name": "Blockchain"
+    },
+    {
+      "id": 3,
+      "name": "Impact"
+    },
+    {
+      "id": 4,
+      "name": "Start-up"
+    },
+    {
+      "id": 5,
+      "name": "Assocation"
+    }
+  ],
+  "companies": [
+    {
+      "id": 1,
+      "companyName": "Oyope",
+      "companyTypeID": 1,
+      "address": "9th Floor"
+    },
+    {
+      "id": 2,
+      "companyName": "Devpulse",
+      "companyTypeID": 2,
+      "address": "Apt 480"
+    },
+    {
+      "id": 3,
+      "companyName": "Thoughtstorm",
+      "companyTypeID": 3,
+      "address": "Apt 364"
+    },
+    {
+      "id": 4,
+      "companyName": "Shufflester",
+      "companyTypeID": 4,
+      "address": "Suite 60"
+    },
+    {
+      "id": 5,
+      "companyName": "Twimbo",
+      "companyTypeID": 2,
+      "address": "Room 468"
+    },
+    {
+      "id": 6,
+      "companyName": "Skinte",
+      "companyTypeID": 5,
+      "address": "Apt 108"
+    },
+    {
+      "id": 7,
+      "companyName": "Centidel",
+      "companyTypeID": 3,
+      "address": "Suite 7"
+    },
+    {
+      "id": 8,
+      "companyName": "Shuffledrive",
+      "companyTypeID": 4,
+      "address": "10th Floor"
+    },
+    {
+      "id": 9,
+      "companyName": "Thoughtworks",
+      "companyTypeID": 2,
+      "address": "Suite 91"
+    },
+    {
+      "id": 10,
+      "companyName": "Yoveo",
+      "companyTypeID": 5,
+      "address": "17th Floor"
+    }
+  ],
+  "projects": [
+    
+  ]
 }

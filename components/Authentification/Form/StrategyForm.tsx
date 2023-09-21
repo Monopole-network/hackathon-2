@@ -1,27 +1,40 @@
 import { Box, Checkbox, CheckboxGroup, Flex, Heading, Select, Text } from "@chakra-ui/react";
 import { FormControl, FormLabel, Input, Stack, HStack, VStack, Button, Textarea } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const clientsTypes = ["B2B", "B2C", "B2B2B", "B2B2C", "Économique"];
 const continents = ["Europe", "Afrique", "Amérique du Nord", "Asie", "Amérique du Sud", "Océanie", "Amérique centrale"];
 const reorientation_stratégies = ["Oui", "Non", "Je ne sais pas", "Non renseigné"];
 
-const StrategyForm: React.FC = ({ formData, setFormData }: any) => {
-  const handleFormChange = (e: any) => {
-    const { name, value } = e.target;
-
-    // Mettez à jour formData en fonction du champ du formulaire modifié
+const StrategyForm = ({ formData, setFormData }: any) => {
+  const [strategyData, setStrategyData] = useState({
+    clientsTypes: [],
+    continents: [],
+    reorientation_stratégies: [],
+  });
+  useEffect(() => {
     setFormData((prevData: any) => ({
       ...prevData,
-      [name]: value,
+      Strategy: strategyData,
     }));
+  }, [setFormData, strategyData]);
+
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target;
+    setStrategyData({
+      ...strategyData,
+      [name]: value,
+    });
   };
 
-  const handleClientsTypesChange = (selectedValue: any) => {
+  const handleClientsTypesChange = (selected: any) => {
     // Mettez à jour formData avec la valeur sélectionnée pour l'échelle de connaissances blockchain
     setFormData((prevData: any) => ({
       ...prevData,
-      selectedClientsTypes: selectedValue,
+      Strategy: {
+        ...prevData.Strategy,
+        selectedClientsTypes: selected,
+      },
     }));
   };
 
@@ -30,7 +43,10 @@ const StrategyForm: React.FC = ({ formData, setFormData }: any) => {
     // Mettez à jour formData avec les connaissances blockchain sélectionnées
     setFormData((prevData: any) => ({
       ...prevData,
-      selectedContinent: selected,
+      Strategy: {
+        ...prevData.Strategy,
+        selectedContinent: selected,
+      },
     }));
   };
 
@@ -39,7 +55,10 @@ const StrategyForm: React.FC = ({ formData, setFormData }: any) => {
     // Mettez à jour formData avec les audits de cyber-sécurité sélectionnés
     setFormData((prevData: any) => ({
       ...prevData,
-      selectedReorientationStratégies: selected,
+      Strategy: {
+        ...prevData.Strategy,
+        selectedReorientationStratégies: selected,
+      },
     }));
   };
 

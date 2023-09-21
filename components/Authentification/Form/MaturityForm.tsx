@@ -38,11 +38,14 @@ const Maturity = ({ formData, setFormData }: any) => {
     }));
   };
 
-  const handleBlockchainKnowledgeScaleChange = (selectedValue :any) => {
+  const handleBlockchainKnowledgeScaleChange = (selected: any) => {
     // Mettez à jour formData avec la valeur sélectionnée pour l'échelle de connaissances blockchain
-    setFormData((prevData:any) => ({
+    setFormData((prevData: any) => ({
       ...prevData,
-      blockchainKnowledgeScale: selectedValue,
+      Maturity: {
+        ...prevData.Maturity,
+        blockchainKnowledgeScale: selected,
+      },
     }));
   };
 
@@ -51,7 +54,10 @@ const Maturity = ({ formData, setFormData }: any) => {
     // Mettez à jour formData avec les connaissances blockchain sélectionnées
     setFormData((prevData: any) => ({
       ...prevData,
-      blockchainKnowledges: selected,
+      Maturity: {
+        ...prevData.Maturity,
+        blockchainKnowledges: selected,
+      },
     }));
   };
 
@@ -60,7 +66,10 @@ const Maturity = ({ formData, setFormData }: any) => {
     // Mettez à jour formData avec les audits de cyber-sécurité sélectionnés
     setFormData((prevData: any) => ({
       ...prevData,
-      securityAudits: selected,
+      Maturity: {
+        ...prevData.Maturity,
+        securityAudits: selected,
+      },
     }));
   };
 
@@ -114,6 +123,9 @@ const Maturity = ({ formData, setFormData }: any) => {
               ))}
             </Wrap>
           </CheckboxGroup>
+          <Button onClick={handleTestFormData} colorScheme="green">
+            Tester l'enregistrement
+          </Button>
         </VStack>
       </Box>
     </Flex>
