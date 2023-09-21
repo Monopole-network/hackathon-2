@@ -8,154 +8,191 @@ const Filters = () => {
      // TODO Responsive + CSS
      // TODO Recup la liste des projets (json server) mais pour l'instant on fait avec la fake data vu que c vide sur le server
      //fake data À retirer
-     const dataInitialProjets = [
-        {
-            projectName: "Test projet 2",
-            description: "The 'FutureGreen' project is an ambitious and innovative initiative aimed at designing and implementing a futuristic, sustainable, green city from scratch.",
-            media: [
-                {
-                    url: "https://testimage.com",
-                    alt: ""
-                },
-                {
-                    url: "https://testimage.com",
-                    alt: ""
-                },
-            ],
-            address: "70 road Kingston",
-            companyName: "Testing Limits",
-            crowdfunding: false,
-            labelsID: [1],
-            cryptosID: [1],
-            categoriesID: [1],
-            companyTypeID: 1,
-            projectManagers: [
-                {
-                    firstName: "Yolene",
-                    lastName: "CONSTABLE",
-                    role: "Head Manager"
-                }
-            ]
+    // const dataInitialProjets = [
+    //     {
+    //         projectName: "Test projet 2",
+    //         description: "The 'FutureGreen' project is an ambitious and innovative initiative aimed at designing and implementing a futuristic, sustainable, green city from scratch.",
+    //         media: [
+    //             {
+    //                 url: "https://testimage.com",
+    //                 alt: ""
+    //             },
+    //             {
+    //                 url: "https://testimage.com",
+    //                 alt: ""
+    //             },
+    //         ],
+    //         address: "70 road Kingston",
+    //         companyName: "Testing Limits",
+    //         crowdfunding: false,
+    //         labelsID: [1],
+    //         cryptosID: [1],
+    //         categoriesID: [1],
+    //         companyTypeID: 1,
+    //         projectManagers: [
+    //             {
+    //                 firstName: "Yolene",
+    //                 lastName: "CONSTABLE",
+    //                 role: "Head Manager"
+    //             }
+    //         ]
 
-        },
-        {
-            projectName: "Blueprint for a Sustainable City",
-            description: "The 'FutureGreen' project is an ambitious and innovative initiative aimed at designing and implementing a futuristic, sustainable, green city from scratch.",
-            media: [
-                {
-                    url: "https://testimage.com",
-                    alt: ""
-                },
-                {
-                    url: "https://testimage.com",
-                    alt: ""
-                },
-            ],
-            address: "70 road Kingston",
-            companyName: "Blueprints",
-            crowdfunding: false,
-            labelsID: [1],
-            cryptosID: [2],
-            categoriesID: [2],
-            companyTypeID: 1,
-            projectManagers: [
-                {
-                    firstName: "Yolene",
-                    lastName: "CONSTABLE",
-                    role: "Head Manager"
-                }
-            ]
+    //     },
+    //     {
+    //         projectName: "Blueprint for a Sustainable City",
+    //         description: "The 'FutureGreen' project is an ambitious and innovative initiative aimed at designing and implementing a futuristic, sustainable, green city from scratch.",
+    //         media: [
+    //             {
+    //                 url: "https://testimage.com",
+    //                 alt: ""
+    //             },
+    //             {
+    //                 url: "https://testimage.com",
+    //                 alt: ""
+    //             },
+    //         ],
+    //         address: "70 road Kingston",
+    //         companyName: "Blueprints",
+    //         crowdfunding: false,
+    //         labelsID: [1],
+    //         cryptosID: [2],
+    //         categoriesID: [2],
+    //         companyTypeID: 1,
+    //         projectManagers: [
+    //             {
+    //                 firstName: "Yolene",
+    //                 lastName: "CONSTABLE",
+    //                 role: "Head Manager"
+    //             }
+    //         ]
 
-        },
-        {
-            projectName: "WorkForce Equality",
-            description: "The 'WorkForce Equality' project is a comprehensive initiative designed to tackle income disparities and promote equal work opportunities.",
-            media: [
-                {
-                    url: "https://testimage.com",
-                    alt: ""
-                },
-                {
-                    url: "https://testimage.com",
-                    alt: ""
-                },
-            ],
-            address: "70 road Kingston",
-            companyName: "Testing Limits 2",
-            crowdfunding: false,
-            labelsID: [2],
-            cryptosID: [1],
-            categoriesID: [3],
-            companyTypeID: 1,
-            projectManagers: [
-                {
-                    firstName: "Yolene",
-                    lastName: "CONSTABLE",
-                    role: "Head Manager"
-                }
-            ]
+    //     },
+    //     {
+    //         projectName: "WorkForce Equality",
+    //         description: "The 'WorkForce Equality' project is a comprehensive initiative designed to tackle income disparities and promote equal work opportunities.",
+    //         media: [
+    //             {
+    //                 url: "https://testimage.com",
+    //                 alt: ""
+    //             },
+    //             {
+    //                 url: "https://testimage.com",
+    //                 alt: ""
+    //             },
+    //         ],
+    //         address: "70 road Kingston",
+    //         companyName: "Testing Limits 2",
+    //         crowdfunding: false,
+    //         labelsID: [2],
+    //         cryptosID: [1],
+    //         categoriesID: [3],
+    //         companyTypeID: 1,
+    //         projectManagers: [
+    //             {
+    //                 firstName: "Yolene",
+    //                 lastName: "CONSTABLE",
+    //                 role: "Head Manager"
+    //             }
+    //         ]
 
-        },
-        {
-            projectName: "The Green Machine",
-            description: "The 'Green Machine' project is a pioneering venture dedicated to developing eco-friendly transportation technology. Our main focus is on creating innovative and sustainable solutions in the form of electric and hydrogen-powered vehicles.",
-            media: [
-                {
-                    url: "https://testimage.com",
-                    alt: ""
-                },
-                {
-                    url: "https://testimage.com",
-                    alt: ""
-                },
-            ],
-            address: "70 road Melson",
-            companyName: "Green Tech",
-            crowdfunding: true,
-            labelsID: [2],
-            cryptosID: [2],
-            categoriesID: [4],
-            companyTypeID: 1,
-            projectManagers: [
-                {
-                    firstName: "Yolene",
-                    lastName: "CONSTABLE",
-                    role: "Head Manager"
-                }
-            ]
+    //     },
+    //     {
+    //         projectName: "The Green Machine",
+    //         description: "The 'Green Machine' project is a pioneering venture dedicated to developing eco-friendly transportation technology. Our main focus is on creating innovative and sustainable solutions in the form of electric and hydrogen-powered vehicles.",
+    //         media: [
+    //             {
+    //                 url: "https://testimage.com",
+    //                 alt: ""
+    //             },
+    //             {
+    //                 url: "https://testimage.com",
+    //                 alt: ""
+    //             },
+    //         ],
+    //         address: "70 road Melson",
+    //         companyName: "Green Tech",
+    //         crowdfunding: true,
+    //         labelsID: [2],
+    //         cryptosID: [2],
+    //         categoriesID: [4],
+    //         companyTypeID: 1,
+    //         projectManagers: [
+    //             {
+    //                 firstName: "Yolene",
+    //                 lastName: "CONSTABLE",
+    //                 role: "Head Manager"
+    //             }
+    //         ]
 
-        },
-        {
-            projectName: "TEEST MARIA",
-            description: "The 'WorkForce Equality' project is a comprehensive initiative designed to tackle income disparities and promote equal work opportunities.",
-            media: [
-                {
-                    url: "https://testimage.com",
-                    alt: ""
-                },
-                {
-                    url: "https://testimage.com",
-                    alt: ""
-                },
-            ],
-            address: "70 road Kingston",
-            companyName: "TMARIA",
-            crowdfunding: false,
-            labelsID: [1],
-            cryptosID: [1,2],
-            categoriesID: [4],
-            companyTypeID: 1,
-            projectManagers: [
-                {
-                    firstName: "Yolene",
-                    lastName: "CONSTABLE",
-                    role: "Head Manager"
-                }
-            ]
+    //     },
+    //     {
+    //         projectName: "TEEST MARIA",
+    //         description: "The 'WorkForce Equality' project is a comprehensive initiative designed to tackle income disparities and promote equal work opportunities.",
+    //         media: [
+    //             {
+    //                 url: "https://testimage.com",
+    //                 alt: ""
+    //             },
+    //             {
+    //                 url: "https://testimage.com",
+    //                 alt: ""
+    //             },
+    //         ],
+    //         address: "70 road Kingston",
+    //         companyName: "TMARIA",
+    //         crowdfunding: false,
+    //         labelsID: [1],
+    //         cryptosID: [1,2],
+    //         categoriesID: [4],
+    //         companyTypeID: 1,
+    //         projectManagers: [
+    //             {
+    //                 firstName: "Yolene",
+    //                 lastName: "CONSTABLE",
+    //                 role: "Head Manager"
+    //             }
+    //         ]
 
-        },
+    //     },
         
-    ]
+    // ]
+
+    const dataInitialProjets = [
+        {"projectName":"💲MultiversX---💬Proof of impact---🗃️Environnemental","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[1],"categoriesID":[1],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲MultiversX---💬Proof of impact---🗃️Caritatif","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[1],"categoriesID":[2],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲MultiversX---💬Proof of impact---🗃️Social","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[1],"categoriesID":[3],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲MultiversX---💬Proof of impact---🗃️Economique","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[1],"categoriesID":[4],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲MultiversX---💬Foundation---🗃️Environnemental","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[1],"categoriesID":[1],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲MultiversX---💬Foundation---🗃️Caritatif","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[1],"categoriesID":[2],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲MultiversX---💬Foundation---🗃️Social","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[1],"categoriesID":[3],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲MultiversX---💬Foundation---🗃️Economique","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[1],"categoriesID":[4],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Polygon---💬Proof of impact---🗃️Environnemental","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[2],"categoriesID":[1],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Polygon---💬Proof of impact---🗃️Caritatif","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[2],"categoriesID":[2],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Polygon---💬Proof of impact---🗃️Social","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[2],"categoriesID":[3],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Polygon---💬Proof of impact---🗃️Economique","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[2],"categoriesID":[4],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Polygon---💬Foundation---🗃️Environnemental","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[2],"categoriesID":[1],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Polygon---💬Foundation---🗃️Caritatif","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[2],"categoriesID":[2],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Polygon---💬Foundation---🗃️Social","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[2],"categoriesID":[3],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Polygon---💬Foundation---🗃️Economique","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[2],"categoriesID":[4],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Etherum---💬Proof of impact---🗃️Environnemental","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[3],"categoriesID":[1],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Etherum---💬Proof of impact---🗃️Caritatif","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[3],"categoriesID":[2],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Etherum---💬Proof of impact---🗃️Social","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[3],"categoriesID":[3],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Etherum---💬Proof of impact---🗃️Economique","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[3],"categoriesID":[4],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Etherum---💬Foundation---🗃️Environnemental","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[3],"categoriesID":[1],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Etherum---💬Foundation---🗃️Caritatif","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[3],"categoriesID":[2],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Etherum---💬Foundation---🗃️Social","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[3],"categoriesID":[3],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Etherum---💬Foundation---🗃️Economique","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[3],"categoriesID":[4],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Avalanche---💬Proof of impact---🗃️Environnemental","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[4],"categoriesID":[1],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Avalanche---💬Proof of impact---🗃️Caritatif","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[4],"categoriesID":[2],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Avalanche---💬Proof of impact---🗃️Social","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[4],"categoriesID":[3],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Avalanche---💬Proof of impact---🗃️Economique","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[1],"cryptosID":[4],"categoriesID":[4],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Avalanche---💬Foundation---🗃️Environnemental","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[4],"categoriesID":[1],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Avalanche---💬Foundation---🗃️Caritatif","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[4],"categoriesID":[2],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Avalanche---💬Foundation---🗃️Social","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[4],"categoriesID":[3],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]},
+        {"projectName":"💲Avalanche---💬Foundation---🗃️Economique","description":"la description","media":[{"url":"https://testimage.com","alt":""},{"url":"https://testimage.com","alt":""}],"address":"70 road Kingston","companyName":"Blueprints","crowdfunding":false,"labelsID":[2],"cryptosID":[4],"categoriesID":[4],"companyTypeID":1,"projectManagers":[{"firstName":"Yolene","lastName":"CONSTABLE","role":"Head Manager"}]}
+    ];
+    
+
     const [selectedCategory, setSelectedCategory] = useState([]);
     const [selectedCryptosFilter, setSelectedCryptosFilter] = useState(0);
     const [selectedLabelsFilter, setSelectedLabelsFilter] = useState(0);
@@ -343,6 +380,7 @@ const Filters = () => {
                 <div>----------------------------------</div>
                 <div>
                     <div >Projets</div>
+                    <h1>Nombre de projets / { selectedProjects.length }</h1>
                     <div id='projectsContainer_projectsList'>
                         {selectedProjects.map((projet,i)=> <div key={i}>{projet.projectName}</div>)}
                     </div>
