@@ -29,11 +29,9 @@ const steps = [
   "Votre démarche RSE",
 ];
 
-
-
 const StepperWithProgressBar = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [projects, setProjects]= useState("")
+  const [projects, setProjects] = useState("");
   const handleStepClick = (stepIndex: React.SetStateAction<number>) => {
     setActiveStep(stepIndex);
   };
@@ -50,14 +48,42 @@ const StepperWithProgressBar = () => {
   const isLastStep = activeStep === steps.length - 1;
   const isFirstStep = activeStep === 0;
 
-  const [formData, setFormData] = useState({
-    KYB: {},
-    Society: {},
-    Strategy: {},
-    Maturity: {},
-    Business: {},
-    RSE: {},
-  });
+  const initialFormData = {
+ 
+    projectName: "Projet ",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    medias: [
+      {
+        url: "https://source.unsplash.com/random?environment",
+        alt: "Ceci est une image de projet",
+      },
+      {
+        url: "https://source.unsplash.com/random?environment",
+        alt: "Ceci est une image de projet",
+      },
+    ],
+    address: "Bla bla bla",
+    zipCode: 75000,
+    country: "France",
+    continent: "Europe",
+    companyID: 2,
+    criteria: { KYB: {}, Society: {}, Strategy: {}, Maturity: {}, Business: {}, RSE: {} },
+    crowdfunding: false,
+    categoriesID: [1],
+    labelsID: [1],
+    cryptosID: [1, 2, 3, 4],
+    companyTypeID: 1,
+    projectManagers: [
+      {
+        firstName: "",
+        lastName: "",
+        role: "",
+      },
+    ],
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleFormDataSubmit = async () => {
     // Envoyez les données du formulaire au serveur
@@ -72,6 +98,8 @@ const StepperWithProgressBar = () => {
         body: JSON.stringify(formData),
       });
 
+      console.log(formData , response)
+
       if (response.ok) {
         const data = await response.json();
         console.log("Données du formulaire envoyées avec succès :", data);
@@ -83,17 +111,6 @@ const StepperWithProgressBar = () => {
     }
   };
 
-  const fetchCategories = async () => {
-    const URL = "http://localhost:3001/projects";
-    const response = await fetch(URL);
-    const data = await response.json();
-
-    setProjects(data);
-  };
-  useEffect(() => {
-    fetchCategories();
-  }, []);
-
   const stepComponents = [
     <KYBForm formData={formData} setFormData={setFormData} />,
     <SocietyForm formData={formData} setFormData={setFormData} />,
@@ -102,10 +119,6 @@ const StepperWithProgressBar = () => {
     <BusinessForm formData={formData} setFormData={setFormData} />,
     <RSEForm formData={formData} setFormData={setFormData} />,
   ];
-
-  const handleTestFormData = () => {
-    console.log("Données du formulaire :", formData);
-  };
 
   return (
     <Box>
@@ -150,9 +163,6 @@ const StepperWithProgressBar = () => {
                 </Button>
               )}
             </HStack>
-            <Button onClick={fetchCategories} colorScheme="green">
-              Tester l&rsquo;enregistrement
-            </Button>
           </Stack>
         </Box>
       </Box>

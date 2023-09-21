@@ -42,9 +42,12 @@ const Maturity = ({ formData, setFormData }: any) => {
     // Mettez à jour formData avec la valeur sélectionnée pour l'échelle de connaissances blockchain
     setFormData((prevData: any) => ({
       ...prevData,
-      Maturity: {
-        ...prevData.Maturity,
-        blockchainKnowledgeScale: selected,
+      criteria: {
+        ...prevData.criteria,
+        Maturity: {
+          ...prevData.criteria.Maturity,
+          blockchainKnowledgeScale: selected,
+        },
       },
     }));
   };
@@ -54,9 +57,12 @@ const Maturity = ({ formData, setFormData }: any) => {
     // Mettez à jour formData avec les connaissances blockchain sélectionnées
     setFormData((prevData: any) => ({
       ...prevData,
-      Maturity: {
-        ...prevData.Maturity,
-        blockchainKnowledges: selected,
+      criteria: {
+        ...prevData.criteria,
+        Maturity: {
+          ...prevData.criteria.Maturity,
+          blockchainKnowledges: selected,
+        },
       },
     }));
   };
@@ -66,9 +72,12 @@ const Maturity = ({ formData, setFormData }: any) => {
     // Mettez à jour formData avec les audits de cyber-sécurité sélectionnés
     setFormData((prevData: any) => ({
       ...prevData,
-      Maturity: {
-        ...prevData.Maturity,
-        securityAudits: selected,
+      criteria: {
+        ...prevData.criteria,
+        Maturity: {
+          ...prevData.criteria.Maturity,
+          securityAudits: selected,
+        },
       },
     }));
   };
@@ -123,8 +132,8 @@ const Maturity = ({ formData, setFormData }: any) => {
               ))}
             </Wrap>
           </CheckboxGroup>
-          <Button onClick={handleTestFormData} colorScheme="green">
-            Tester l'enregistrement
+          <Button onClick={handleTestFormData} colorScheme="blue">
+            Enregistrer
           </Button>
         </VStack>
       </Box>
