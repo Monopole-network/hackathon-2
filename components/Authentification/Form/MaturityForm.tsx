@@ -1,4 +1,16 @@
-import { Box, Checkbox, CheckboxGroup, Flex, Heading, Radio, RadioGroup, Select, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import {
+  Box,
+  Checkbox,
+  CheckboxGroup,
+  Flex,
+  Heading,
+  Radio,
+  RadioGroup,
+  Select,
+  Text,
+  Wrap,
+  WrapItem,
+} from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { FormControl, FormLabel, Input, Stack, HStack, VStack, Button, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
@@ -13,18 +25,63 @@ const blockchainKnowledges = [
 ];
 const securityAudits = ["Oui", "Non", "Société pas encore crée", "Non renseigné"];
 
-const Maturity: React.FC = () => {
+const Maturity = ({ formData, setFormData }: any) => {
   const [value, setValue] = React.useState("0");
+
+  const handleFormChange = (e: any) => {
+    const { name, value } = e.target;
+
+    // Mettez à jour formData en fonction du champ du formulaire modifié
+    setFormData((prevData: any) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleBlockchainKnowledgeScaleChange = (selectedValue :any) => {
+    // Mettez à jour formData avec la valeur sélectionnée pour l'échelle de connaissances blockchain
+    setFormData((prevData:any) => ({
+      ...prevData,
+      blockchainKnowledgeScale: selectedValue,
+    }));
+  };
+
+  // Fonction pour gérer la sélection des connaissances blockchain
+  const handleBlockchainKnowledgeChange = (selected: any) => {
+    // Mettez à jour formData avec les connaissances blockchain sélectionnées
+    setFormData((prevData: any) => ({
+      ...prevData,
+      blockchainKnowledges: selected,
+    }));
+  };
+
+  // Fonction pour gérer la sélection des audits de cyber-sécurité
+  const handleSecurityAuditsChange = (selected: any) => {
+    // Mettez à jour formData avec les audits de cyber-sécurité sélectionnés
+    setFormData((prevData: any) => ({
+      ...prevData,
+      securityAudits: selected,
+    }));
+  };
+
+  const handleTestFormData = () => {
+    console.log("Données du formulaire :", formData);
+  };
+
   return (
     <Flex w="100%" backgroundRepeat="no-repeat" backgroundSize="100%" flexDirection="column">
-      <Box w="100%" mx="auto" >
+      <Box w="100%" mx="auto">
         <Heading as="h1" mb={4}>
           Votre maturité digitale & Web3
         </Heading>
         <VStack align="stretch">
-          <RadioGroup colorScheme="green" onChange={setValue} value={value}>
+          <RadioGroup
+            colorScheme="green"
+            onChange={handleBlockchainKnowledgeScaleChange}
+            value={formData.blockchainKnowledgeScale}
+          >
             <Text>Sur une échelle de 0 à 5 comment situez vous vos connaissances sur la blockchain ?</Text>
-            <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
+            <Stack alignContent="center" spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               <Radio value="0">0</Radio>
               <Radio value="1">1</Radio>
               <Radio value="2">2</Radio>
@@ -33,7 +90,11 @@ const Maturity: React.FC = () => {
               <Radio value="5">5</Radio>
             </Stack>
           </RadioGroup>
-          <CheckboxGroup colorScheme="green">
+          <CheckboxGroup
+            colorScheme="green"
+            value={formData.blockchainKnowledges}
+            onChange={handleBlockchainKnowledgeChange}
+          >
             <Text>Besoin d’une réorientation stratégique ?</Text>
             <Wrap spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {blockchainKnowledges.map((blockchainKnowledge, index) => (
@@ -43,11 +104,11 @@ const Maturity: React.FC = () => {
               ))}
             </Wrap>
           </CheckboxGroup>
-          <CheckboxGroup colorScheme="green">
+          <CheckboxGroup colorScheme="green" value={formData.securityAudits} onChange={handleSecurityAuditsChange}>
             <Text>Avez vous déja réalisé des audits de cyber-sécurité pour votre société ?</Text>
             <Wrap spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {securityAudits.map((securityAudit, index) => (
-                <WrapItem key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8} >
+                <WrapItem key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
                   <Checkbox value={securityAudit}>{securityAudit}</Checkbox>
                 </WrapItem>
               ))}

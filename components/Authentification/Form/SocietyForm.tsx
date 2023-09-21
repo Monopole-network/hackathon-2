@@ -58,26 +58,8 @@ const FormSociety: React.FC = () => {
               <FormLabel>Sur quel continent votre siège social se situe-t-il ?</FormLabel>
               <Select disabled name="continentName" placeholder="Europe" />
             </FormControl>
-
             <SujetForm/>
-            {/*    <FormControl id="description" isRequired>
-              <FormLabel>Description</FormLabel>
-              <Textarea name="description" placeholder="Votre description" />
-            </FormControl>
-
-            <FormControl id="imageUpload">
-              <FormLabel>Télécharger des images</FormLabel>
-              <Input type="file" accept="image/*" multiple onChange={handleImageUpload}  />
-            </FormControl>
-
-            <FormControl id="label" isRequired>
-              <CheckboxGroup colorScheme="green" defaultValue={["Proof of Impact", "Foundation"]}>
-                <Stack spacing={[1, 5]} direction={["column", "row"]}>
-                  <Checkbox value="Proof of Impact">Proof of Impact</Checkbox>
-                  <Checkbox value="Foundation">Foundation</Checkbox>
-                </Stack>
-              </CheckboxGroup>
-            </FormControl> */}
+         
           </VStack>
         </form>
       </Box>

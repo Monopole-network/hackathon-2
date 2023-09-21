@@ -6,28 +6,41 @@ const clientsTypes = ["B2B", "B2C", "B2B2B", "B2B2C", "Économique"];
 const continents = ["Europe", "Afrique", "Amérique du Nord", "Asie", "Amérique du Sud", "Océanie", "Amérique centrale"];
 const reorientation_stratégies = ["Oui", "Non", "Je ne sais pas", "Non renseigné"];
 
-const StrategyForm: React.FC = () => {
-  // État local pour stocker les choix
-  const [selectedClientsTypes, setSelectedClientsTypes] = useState<string[]>([]);
-  const [selectedContinent, setSelectedContinent] = useState<string | null>(null);
-  const [selectedReorientationStratégies, setSelectedReorientationStratégies] = useState<string[]>([]);
+const StrategyForm: React.FC = ({ formData, setFormData }: any) => {
+  const handleFormChange = (e: any) => {
+    const { name, value } = e.target;
 
-  // Fonction pour gérer la sélection des types de clients
-  const handleClientsTypesChange = (selected: string[]) => {
-    setSelectedClientsTypes(selected);
-    console.log("selectedContinent",selectedClientsTypes)
+    // Mettez à jour formData en fonction du champ du formulaire modifié
+    setFormData((prevData: any) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  // Fonction pour gérer la sélection du continent
-  const handleContinentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedContinent(event.target.value);
-    console.log("selectedContinent",selectedContinent)
+  const handleClientsTypesChange = (selectedValue: any) => {
+    // Mettez à jour formData avec la valeur sélectionnée pour l'échelle de connaissances blockchain
+    setFormData((prevData: any) => ({
+      ...prevData,
+      selectedClientsTypes: selectedValue,
+    }));
   };
 
-  // Fonction pour gérer la sélection des réorientations stratégiques
-  const handleReorientationStratégiesChange = (selected: string[]) => {
-    setSelectedReorientationStratégies(selected);
-    console.log("selectedReorientationStratégies",selectedReorientationStratégies)
+  // Fonction pour gérer la sélection des connaissances blockchain
+  const handleContinentChange = (selected: any) => {
+    // Mettez à jour formData avec les connaissances blockchain sélectionnées
+    setFormData((prevData: any) => ({
+      ...prevData,
+      selectedContinent: selected,
+    }));
+  };
+
+  // Fonction pour gérer la sélection des audits de cyber-sécurité
+  const handleReorientationStratégiesChange = (selected: any) => {
+    // Mettez à jour formData avec les audits de cyber-sécurité sélectionnés
+    setFormData((prevData: any) => ({
+      ...prevData,
+      selectedReorientationStratégies: selected,
+    }));
   };
 
   return (
@@ -37,7 +50,7 @@ const StrategyForm: React.FC = () => {
           Votre stratégie
         </Heading>
         <VStack align="stretch">
-          <CheckboxGroup colorScheme="green" value={selectedClientsTypes} onChange={handleClientsTypesChange}>
+          <CheckboxGroup colorScheme="green" value={formData.selectedClientsTypes} onChange={handleClientsTypesChange}>
             <Text>Type de clients</Text>
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {clientsTypes.map((client, index) => (
@@ -47,7 +60,7 @@ const StrategyForm: React.FC = () => {
               ))}
             </Stack>
           </CheckboxGroup>
-          <CheckboxGroup colorScheme="green" value={selectedContinent} onChange={handleContinentChange}>
+          <CheckboxGroup colorScheme="green" value={formData.selectedContinent} onChange={handleContinentChange}>
             <Text>Premier territoire où votre activité est déployée</Text>
             <Box w="100%">
               <Select>
@@ -59,7 +72,11 @@ const StrategyForm: React.FC = () => {
               </Select>
             </Box>
           </CheckboxGroup>
-          <CheckboxGroup colorScheme="green" value={selectedReorientationStratégies} onChange={handleReorientationStratégiesChange}>
+          <CheckboxGroup
+            colorScheme="green"
+            value={formData.selectedReorientationStratégies}
+            onChange={handleReorientationStratégiesChange}
+          >
             <Text>Besoin d’une réorientation stratégique ?</Text>
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {reorientation_stratégies.map((reorientation_stratégie, index) => (
