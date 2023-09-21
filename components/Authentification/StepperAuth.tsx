@@ -19,6 +19,7 @@ import StrategyForm from "./Form/StrategyForm";
 import MaturityForm from "./Form/MaturityForm";
 import BusinessForm from "./Form/BusinessForm";
 import RSEForm from "./Form/RSEForm";
+import { PROJECTS_URL } from "../../routes";
 
 const steps = [
   "KYB",
@@ -88,9 +89,8 @@ const StepperWithProgressBar = () => {
   const handleFormDataSubmit = async () => {
     // Envoyez les données du formulaire au serveur
 
-    const URL = "http://localhost:3001/projects";
     try {
-      const response = await fetch(URL, {
+      const response = await fetch(PROJECTS_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

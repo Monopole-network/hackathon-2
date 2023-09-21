@@ -7,33 +7,27 @@ const continents = ["Europe", "Afrique", "Amérique du Nord", "Asie", "Amérique
 const reorientation_stratégies = ["Oui", "Non", "Je ne sais pas", "Non renseigné"];
 
 const StrategyForm = ({ formData, setFormData }: any) => {
-  const [strategyData, setStrategyData] = useState({
-    clientsTypes: [],
-    continents: [],
-    reorientation_stratégies: [],
-  });
-  useEffect(() => {
+
+  const handleFormChange = (e: any) => {
+    const { name, value } = e.target;
+
+    // Mettez à jour formData en fonction du champ du formulaire modifié
     setFormData((prevData: any) => ({
       ...prevData,
-      Strategy: strategyData,
-    }));
-  }, [setFormData, strategyData]);
-
-  const handleInputChange = (e: any) => {
-    const { name, value } = e.target;
-    setStrategyData({
-      ...strategyData,
       [name]: value,
-    });
+    }));
   };
 
   const handleClientsTypesChange = (selected: any) => {
     // Mettez à jour formData avec la valeur sélectionnée pour l'échelle de connaissances blockchain
     setFormData((prevData: any) => ({
       ...prevData,
-      Strategy: {
-        ...prevData.Strategy,
-        selectedClientsTypes: selected,
+      criteria: {
+        ...prevData.criteria,
+        Strategy: {
+          ...prevData.criteria.Strategy,
+          selectedClientsTypes: selected,
+        },
       },
     }));
   };
@@ -43,9 +37,12 @@ const StrategyForm = ({ formData, setFormData }: any) => {
     // Mettez à jour formData avec les connaissances blockchain sélectionnées
     setFormData((prevData: any) => ({
       ...prevData,
-      Strategy: {
-        ...prevData.Strategy,
-        selectedContinent: selected,
+      criteria: {
+        ...prevData.criteria,
+        Strategy: {
+          ...prevData.criteria.Strategy,
+          selectedContinent: selected,
+        },
       },
     }));
   };
@@ -55,9 +52,12 @@ const StrategyForm = ({ formData, setFormData }: any) => {
     // Mettez à jour formData avec les audits de cyber-sécurité sélectionnés
     setFormData((prevData: any) => ({
       ...prevData,
-      Strategy: {
-        ...prevData.Strategy,
-        selectedReorientationStratégies: selected,
+      criteria: {
+        ...prevData.criteria,
+        Strategy: {
+          ...prevData.criteria.Strategy,
+          selectedReorientationStratégies: selected,
+        },
       },
     }));
   };
