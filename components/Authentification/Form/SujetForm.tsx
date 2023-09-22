@@ -55,7 +55,7 @@ for (const category of categories) {
           Dans quel(s) sujet(s) se placent votre projet ?
         </Heading>
         <VStack>
-          <CheckboxGroup colorScheme="green"  value={formData.categoryNames} onChange={handleCategoryChange}>
+          <CheckboxGroup  colorScheme="green"  value={formData.categoryNames} onChange={handleCategoryChange}>
             <Wrap spacing="0.5rem">
               {categoryNames.map((sujet, index) => (
                 <WrapItem key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>

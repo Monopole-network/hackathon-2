@@ -182,25 +182,26 @@ const StepperWithProgressBar = () => {
   return (
     <Box position="relative">
       <Box>
-        <Stack border="1px" backgroundColor="#0C0E47">
-          <Text>
-            <Link href="/">Accueil</Link> &#62; <Link href="/authentification">Ajout de votre proje</Link>t
-          </Text>
-          <Heading  as="h1" mb={4} textAlign="center" fontSize={32}>
-            Ajout de votre projet
-          </Heading>
+        <Stack border="1px" >
+          <Stack >
+            <Text fontSize="12px">
+              <Link href="/">Accueil</Link> &#62; <Link href="/authentification">Ajout de votre proje</Link>t
+            </Text>
+            <Heading as="h1" mb={4} textAlign="center" fontSize={32}>
+              Ajout de votre projet
+            </Heading>
+          </Stack>
           <Center padding="80px">
             <Stepper
               steps={steps}
               activeStep={activeStep}
-              activeColor="#ffd813"
-              defaultColor="#eee"
-              completeColor="#ffbd13"
               activeTitleColor="#fff"
               completeTitleColor="#eee"
-              defaultTitleColor="#bbb"
               circleFontColor="#000"
-              completeBarColor="#ffbd13"
+              completeBarColor="##0084FF"
+              activeColor= '#02A374'
+              disabledColor= '#eee'
+        
             />
           </Center>
         </Stack>

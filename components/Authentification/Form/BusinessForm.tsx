@@ -83,7 +83,7 @@ const BusinessForm: React.FC = ({ formData, setFormData }: any) => {
       </Heading>
       <VStack align="stretch" gap="2rem" fontSize={18}>
         <Stack>
-          <RadioGroup colorScheme="green" value={formData.businessPlan} onChange={handleBusinessPlanChange}>
+          <RadioGroup colorScheme="green"  value={formData.businessPlan} onChange={handleBusinessPlanChange}>
             <Text>Avez-vous défini votre business plan ?</Text>
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               <Radio size="lg" value="Oui">

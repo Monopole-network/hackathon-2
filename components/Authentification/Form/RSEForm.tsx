@@ -1,4 +1,17 @@
-import { Box, RadioGroup, Flex, Heading, Radio, Text, Wrap, WrapItem, CheckboxGroup, Checkbox, Center, Link } from "@chakra-ui/react";
+import {
+  Box,
+  RadioGroup,
+  Flex,
+  Heading,
+  Radio,
+  Text,
+  Wrap,
+  WrapItem,
+  CheckboxGroup,
+  Checkbox,
+  Center,
+  Link,
+} from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { FormControl, FormLabel, Input, Stack, HStack, VStack, Button, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
@@ -151,17 +164,16 @@ const RSEForm: React.FC = ({ formData, setFormData, isSubmitted }: any) => {
         </>
       ) : (
         <>
-        <Center>
-          <HStack>
-          <Heading>
-            Vous avez remplis toutes les informations. Votre projet est maintenant en cours d’examen ! 🎉
-          </Heading>
-          <Link href="/">
-            <Button colorScheme="blue">Retour sur la page d’accueil</Button>
-          </Link>
-          </HStack>
-        </Center>
-          
+          <Stack >
+            <Heading>
+              Vous avez remplis toutes les informations. Votre projet est maintenant en cours d’examen ! 
+            </Heading>
+            <Center padding={8}>
+              <Link href="/">
+                <Button colorScheme="blue">Retour sur la page d’accueil</Button>
+              </Link>
+            </Center>
+          </Stack>
         </>
       )}
     </Box>
