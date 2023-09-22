@@ -186,10 +186,7 @@
                 1
             ],
             "cryptosID": [
-                1,
-                2,
-                3,
-                4
+                3
             ],
             "companyTypeID": 1,
             "projectManagers": [
@@ -218,6 +215,41 @@
             "companyID": 5,
             "crowdfunding": false,
             "categoriesID": [
+                3
+            ],
+            "labelsID": [
+                2
+            ],
+            "cryptosID": [
+                3
+            ],
+            "companyTypeID": 5,
+            "projectManagers": [
+                {
+                    "firstName": "",
+                    "lastName": "",
+                    "role": ""
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "projectName": "Projet 3",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "medias": [
+                {
+                    "url": "https://source.unsplash.com/random?charity",
+                    "alt": "Ceci est une image de projet"
+                },
+                {
+                    "url": "https://source.unsplash.com/random?charity",
+                    "alt": "Ceci est une image de projet"
+                }
+            ],
+            "address": "Bla bla bla",
+            "companyID": 5,
+            "crowdfunding": false,
+            "categoriesID": [
                 2
             ],
             "labelsID": [
@@ -225,7 +257,43 @@
                 2
             ],
             "cryptosID": [
-                1
+                2,
+                4
+            ],
+            "companyTypeID": 2,
+            "projectManagers": [
+                {
+                    "firstName": "",
+                    "lastName": "",
+                    "role": ""
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "projectName": "Projet 4",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "medias": [
+                {
+                    "url": "https://source.unsplash.com/random?charity",
+                    "alt": "Ceci est une image de projet"
+                },
+                {
+                    "url": "https://source.unsplash.com/random?charity",
+                    "alt": "Ceci est une image de projet"
+                }
+            ],
+            "address": "Bla bla bla",
+            "companyID": 5,
+            "crowdfunding": false,
+            "categoriesID": [
+                4
+            ],
+            "labelsID": [
+                2
+            ],
+            "cryptosID": [
+                2
             ],
             "companyTypeID": 4,
             "projectManagers": [

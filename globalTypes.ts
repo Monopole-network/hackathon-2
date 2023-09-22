@@ -75,3 +75,14 @@ export interface ProjectManager {
   lastName: string
   role: string
 }
+
+export enum filterTypes {
+  crypto = "crypto",
+  label = "label",
+}
+
+export interface filters {
+  crypto: number | undefined;
+  label: number | undefined;
+  categories: number[];
+}
