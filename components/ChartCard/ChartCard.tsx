@@ -12,10 +12,11 @@ interface ChartCardProps {
 /*   media: Media; */
   CatName: string;
   TxtResult: string;
-  percent: number
+  Percent: number
+  Color: string;
 }
 
-export default function ChartCard({ CatName, TxtResult, percent}: ChartCardProps) {
+export default function ChartCard({ CatName, TxtResult, Percent, Color}: ChartCardProps) {
 
   return (
     <div className={style["chart-card"]}>
@@ -24,8 +25,8 @@ export default function ChartCard({ CatName, TxtResult, percent}: ChartCardProps
       <p className={style["chart-card__txt-result"]}>{TxtResult}</p>
       </div>
       <div className={style["doughnut-chart"]}>
-      <DoughnutChart/>
-      <p className={style["chart-card__percent"]}>{percent}%</p>
+      <DoughnutChart Percent={Percent} Color={Color}/>
+      <p className={style["chart-card__percent"]}>{Percent}%</p>
       </div>
       <SeeAllButton path="" /> {/* ajouter link vers une page détails */}
     </div>

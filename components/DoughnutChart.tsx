@@ -1,28 +1,35 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import { color } from 'framer-motion';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const data = {
-  labels: [],
-  datasets: [
-    {
-      label: '',
-      data: [80, 20],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
+interface DoughnutProps {
+Percent : number;
+Color : string;
+}
+export function DoughnutChart({Percent, Color} : DoughnutProps) {
+    const full = 100 - Percent;
+    console.log(full);
+    console.log(Percent);
+    const data = {
+      labels: [],
+      datasets: [
+        {
+          label: '',
+          data: [Percent, full],
+          backgroundColor: [
+            Color,
+            'rgba(217, 217, 217, 0.12)',
+          ],
+          borderColor: [
+            Color,
+            'rgba(217, 217, 217, 0.50)',
+          ],
+          borderWidth: 1,
+        },
       ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
-
-export function DoughnutChart() {
+    };
   return <Doughnut data={data} />;
 }
