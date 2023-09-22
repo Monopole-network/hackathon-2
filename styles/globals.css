@@ -22,3 +22,11 @@ body {
   color: #e7e8e8;
   background: #0f1318;
 }
+
+.chart-cards{
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}

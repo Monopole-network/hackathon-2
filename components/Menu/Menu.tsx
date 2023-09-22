@@ -6,6 +6,7 @@ import HomeBtn from './HomeBtn';
 import ServicesBtn from './ServicesBtn';
 import StudioBtn from './StudioBtn';
 import WorldBtn from './WorldBtn';
+import ProjectBtn from './ProjectBtn';
 
 export default function MainMenu() {
   const backgroundColor = useColorModeValue('#f7fafc', '#000123');
@@ -19,6 +20,7 @@ export default function MainMenu() {
           <ServicesBtn />
           <StudioBtn />
           <WorldBtn />
+          <ProjectBtn />
           <CryptoPartnersBtn />
           {!isMobileView && <DashboardBtn />}
         </ButtonGroup>
