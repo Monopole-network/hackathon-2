@@ -1,0 +1,11 @@
+.filter {
+    display: block;
+    border-radius: 4px;
+    padding: 8px 20px;
+    border: none;
+    color: #fff;
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}

@@ -2,6 +2,7 @@
     font-size: 0.9rem;
     color: #fff;
     padding: 2px 14px;
+    border: 1px solid transparent;
     border-radius: 12px;
 }
 
