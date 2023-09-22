@@ -13,9 +13,12 @@
     background-repeat: no-repeat;
     overflow: hidden;
     cursor: pointer;
-    flex-basis: 33%;
+    flex-basis: calc(33% - 40px);
     border-radius: 32px;
-background: var(--brand-indigo, #0C0E47);
+    background: var(--brand-indigo, #0C0E47);
+}
+.chart-card:last-of-type, .chart-card:nth-of-type(4){
+    flex-basis: calc(50% - 40px);
 }
 .doughnut-chart{
     position: relative;

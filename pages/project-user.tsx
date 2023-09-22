@@ -8,6 +8,9 @@ const ProjectUser: NextPage = () => {
       <div className='chart-cards'>
       <ChartCard CatName='Démarche RSE' TxtResult='Vos critères RSE sont respectés.' percent={92} />
       <ChartCard CatName='Votre produit' TxtResult='Veuillez revoir “votre mission, vision & perspectives d’avenir”. Appuyez sur Voir tout pour avoir plus de détails' percent={80} />
+      <ChartCard CatName='Votre produit' TxtResult='Veuillez revoir “votre mission, vision & perspectives d’avenir”. Appuyez sur Voir tout pour avoir plus de détails' percent={80} />
+      <ChartCard CatName='Votre produit' TxtResult='Veuillez revoir “votre mission, vision & perspectives d’avenir”. Appuyez sur Voir tout pour avoir plus de détails' percent={80} />
+      <ChartCard CatName='Votre produit' TxtResult='Veuillez revoir “votre mission, vision & perspectives d’avenir”. Appuyez sur Voir tout pour avoir plus de détails' percent={80} />
       </div>
     </Flex>
   );
