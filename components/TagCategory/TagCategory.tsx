@@ -24,17 +24,15 @@ export default function TagCategory({ categoryID, isSelected, filters, setFilter
   };
 
   const handleClick = () => {
-    if (setFilters) {
       if (filters?.categories.includes(categoryID)) {
         const categoriesCopy = [...filters.categories];
         const index = categoriesCopy.findIndex((cat) => cat === categoryID);
         categoriesCopy.splice(index, 1);
-        setFilters({ ...filters, categories: categoriesCopy });
+        setFilters!({ ...filters, categories: categoriesCopy });
         return;
       }
 
-      setFilters({ ...filters!, categories: [...filters?.categories!, categoryID] });
-    }
+      setFilters!({ ...filters!, categories: [...filters?.categories!, categoryID] });
   };
 
   useEffect(() => {
@@ -43,14 +41,14 @@ export default function TagCategory({ categoryID, isSelected, filters, setFilter
 
   return (
     <div
-      onClick={handleClick}
+      {...(setFilters && filters && { onClick: handleClick })}
       style={{
-        backgroundColor: isSelected ? category?.color : "transparent",
+        backgroundColor: isSelected && large ? category?.color : !large ? category?.color : "transparent",
         ...(!isSelected && { border: `1px solid ${category?.color}` }),
       }}
       className={large ? `${style["tag-category"]} ${style["tag-category--large"]}` : style["tag-category"]}
     >
-      <p {...(large && isSelected && { style: { color: textColor } })} className={style["tag-category__name"]}>
+      <p {...(large && { style: { color: isSelected ? "#fff" : textColor } })} className={style["tag-category__name"]}>
         {category?.name}
       </p>
     </div>
