@@ -1,4 +1,4 @@
-import { Box, Checkbox, CheckboxGroup, Flex, Heading, Select, Text } from "@chakra-ui/react";
+import { Box, Checkbox, CheckboxGroup, Flex, Heading, Radio, RadioGroup, Select, Text } from "@chakra-ui/react";
 import { FormControl, FormLabel, Input, Stack, HStack, VStack, Button, Textarea } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
@@ -7,7 +7,6 @@ const continents = ["Europe", "Afrique", "Amérique du Nord", "Asie", "Amérique
 const reorientation_stratégies = ["Oui", "Non", "Je ne sais pas", "Non renseigné"];
 
 const StrategyForm = ({ formData, setFormData }: any) => {
-
   const handleFormChange = (e: any) => {
     const { name, value } = e.target;
 
@@ -63,12 +62,12 @@ const StrategyForm = ({ formData, setFormData }: any) => {
   };
 
   return (
-    <Flex w="100%" backgroundRepeat="no-repeat" backgroundSize="100%" flexDirection="column">
-      <Box w="100%" mx="auto">
-        <Heading as="h1" mb={4}>
-          Votre stratégie
-        </Heading>
-        <VStack align="stretch">
+    <Box w="100%" mx="auto">
+      <Heading as="h1" mb={8}>
+        Votre stratégie
+      </Heading>
+      <VStack align="stretch" gap="2rem">
+        <Stack>
           <CheckboxGroup colorScheme="green" value={formData.selectedClientsTypes} onChange={handleClientsTypesChange}>
             <Text>Type de clients</Text>
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
@@ -79,6 +78,8 @@ const StrategyForm = ({ formData, setFormData }: any) => {
               ))}
             </Stack>
           </CheckboxGroup>
+        </Stack>
+        <Stack>
           <CheckboxGroup colorScheme="green" value={formData.selectedContinent} onChange={handleContinentChange}>
             <Text>Premier territoire où votre activité est déployée</Text>
             <Box w="100%">
@@ -91,7 +92,9 @@ const StrategyForm = ({ formData, setFormData }: any) => {
               </Select>
             </Box>
           </CheckboxGroup>
-          <CheckboxGroup
+        </Stack>
+        <Stack>
+          <RadioGroup
             colorScheme="green"
             value={formData.selectedReorientationStratégies}
             onChange={handleReorientationStratégiesChange}
@@ -100,14 +103,14 @@ const StrategyForm = ({ formData, setFormData }: any) => {
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {reorientation_stratégies.map((reorientation_stratégie, index) => (
                 <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
-                  <Checkbox value={reorientation_stratégie}>{reorientation_stratégie}</Checkbox>
+                  <Radio value={reorientation_stratégie}>{reorientation_stratégie}</Radio>
                 </Box>
               ))}
             </Stack>
-          </CheckboxGroup>
-        </VStack>
-      </Box>
-    </Flex>
+          </RadioGroup>
+        </Stack>
+      </VStack>
+    </Box>
   );
 };
 

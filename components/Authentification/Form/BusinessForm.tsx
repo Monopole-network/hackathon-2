@@ -77,42 +77,50 @@ const BusinessForm: React.FC = ({ formData, setFormData }: any) => {
   };
 
   return (
-    <Flex w="100%" backgroundRepeat="no-repeat" backgroundSize="100%" flexDirection="column">
-      <Box w="100%" mx="auto">
-        <Heading as="h1" mb={4}>
-          Votre business model
-        </Heading>
-        <VStack align="stretch">
-          <CheckboxGroup colorScheme="green" value={formData.businessPlan} onChange={handleBusinessPlanChange}>
+    <Box w="100%" mx="auto">
+      <Heading as="h1" mb={8}>
+        Votre business model
+      </Heading>
+      <VStack align="stretch" gap="2rem" fontSize={18}>
+        <Stack>
+          <RadioGroup colorScheme="green" value={formData.businessPlan} onChange={handleBusinessPlanChange}>
             <Text>Avez-vous défini votre business plan ?</Text>
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
-              <Checkbox value="Oui">Oui</Checkbox>
-              <Checkbox value="Non">Non</Checkbox>
+              <Radio size="lg" value="Oui">
+                Oui
+              </Radio>
+              <Radio size="lg" value="Non">
+                Non
+              </Radio>
             </Stack>
-          </CheckboxGroup>
-          <CheckboxGroup colorScheme="green" value={formData.percentCryptos} onChange={handleCryptoChange}>
+          </RadioGroup>
+        </Stack>
+        <Stack>
+          <RadioGroup colorScheme="green" value={formData.percentCryptos} onChange={handleCryptoChange}>
             <Text>Sur la totalité de vos revenus, quelle est la part de crypto monnaie ? </Text>
             <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {percentCryptos.map((percentCrypto, index) => (
                 <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
-                  <Checkbox value={percentCrypto}>{percentCrypto}</Checkbox>
+                  <Radio value={percentCrypto}>{percentCrypto}</Radio>
                 </Box>
               ))}
             </Stack>
-          </CheckboxGroup>
-          <CheckboxGroup colorScheme="green" value={formData.revenus} onChange={handleRevenusChange}>
-            <Text>Avez-vous générez du chiffre d’affaire sur l’année N-2</Text>
+          </RadioGroup>
+        </Stack>
+        <Stack>
+          <RadioGroup colorScheme="green" value={formData.revenus} onChange={handleRevenusChange}>
+            <Text>Avez-vous générez du chiffre d’affaire sur l’année N-2 ?</Text>
             <Wrap spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {revenus.map((revenu, index) => (
                 <WrapItem key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
-                  <Checkbox value={revenu}>{revenu}</Checkbox>
+                  <Radio value={revenu}>{revenu}</Radio>
                 </WrapItem>
               ))}
             </Wrap>
-          </CheckboxGroup>
-        </VStack>
-      </Box>
-    </Flex>
+          </RadioGroup>
+        </Stack>
+      </VStack>
+    </Box>
   );
 };
 

@@ -1,22 +1,10 @@
-import {
-  Box,
-  Checkbox,
-  CheckboxGroup,
-  Flex,
-  Heading,
-  Radio,
-  RadioGroup,
-  Select,
-  Text,
-  Wrap,
-  WrapItem,
-} from "@chakra-ui/react";
+import { Box, RadioGroup, Flex, Heading, Radio, Text, Wrap, WrapItem, CheckboxGroup, Checkbox, Center, Link } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { FormControl, FormLabel, Input, Stack, HStack, VStack, Button, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
 import React from "react";
 
-const RSEForm: React.FC = ({ formData, setFormData }: any) => {
+const RSEForm: React.FC = ({ formData, setFormData, isSubmitted }: any) => {
   const ecoGests = ["Oui", "Non", "En cours", "Non renseigné"];
   const salaryEqualities = ["Oui", "Non", "En cours", "Non renseigné"];
   const RSECharts = ["Oui", "Non", "En cours", "Non renseigné"];
@@ -102,58 +90,81 @@ const RSEForm: React.FC = ({ formData, setFormData }: any) => {
   };
 
   return (
-    <Flex w="100%" backgroundRepeat="no-repeat" backgroundSize="100%" flexDirection="column">
-      <Box w="100%" mx="auto">
-        <Heading as="h1" mb={4}>
-          Votre démarche RSE
-        </Heading>
-        <VStack align="stretch">
-          <CheckboxGroup colorScheme="green" value={formData.ecoGests} onChange={handleEcoGestsChange}>
-            <Text>Avez-vous mis en place une politique d’éco gestes en entreprise ? </Text>
-            <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
-              {ecoGests.map((ecoGest, index) => (
-                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
-                  <Checkbox value={ecoGest}>{ecoGest}</Checkbox>
-                </Box>
-              ))}
+    <Box w="100%" mx="auto">
+      {!isSubmitted ? (
+        <>
+          <Heading as="h1" mb={8}>
+            Votre démarche RSE
+          </Heading>
+          <VStack align="stretch" gap="2rem">
+            <Stack>
+              <RadioGroup colorScheme="green" value={formData.ecoGests} onChange={handleEcoGestsChange}>
+                <Text>Avez-vous mis en place une politique d’éco gestes en entreprise ? </Text>
+                <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
+                  {ecoGests.map((ecoGest, index) => (
+                    <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
+                      <Radio value={ecoGest}>{ecoGest}</Radio>
+                    </Box>
+                  ))}
+                </Stack>
+              </RadioGroup>
             </Stack>
-          </CheckboxGroup>
-
-          <CheckboxGroup colorScheme="green" value={formData.salaryEqualities} onChange={handleSalaryEqualitiesChange}>
-            <Text>Avez-vous mis en place une politique d&rsquo;égalité salariale Hommes / Femmes ? </Text>
-            <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
-              {salaryEqualities.map((salaryEquality, index) => (
-                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
-                  <Checkbox value={salaryEquality}>{salaryEquality}</Checkbox>
-                </Box>
-              ))}
+            <Stack>
+              <RadioGroup colorScheme="green" value={formData.salaryEqualities} onChange={handleSalaryEqualitiesChange}>
+                <Text>Avez-vous mis en place une politique d&rsquo;égalité salariale Hommes / Femmes ? </Text>
+                <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
+                  {salaryEqualities.map((salaryEquality, index) => (
+                    <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
+                      <Radio value={salaryEquality}>{salaryEquality}</Radio>
+                    </Box>
+                  ))}
+                </Stack>
+              </RadioGroup>
             </Stack>
-          </CheckboxGroup>
-
-          <CheckboxGroup colorScheme="green" value={formData.RSECharts} onChange={handleRSEChartsChange}>
-            <Text>Avez-vous mis en place une charte RSE? </Text>
-            <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
-              {RSECharts.map((RSEChart, index) => (
-                <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
-                  <Checkbox value={RSEChart}>{RSEChart}</Checkbox>
-                </Box>
-              ))}
+            <Stack>
+              <RadioGroup colorScheme="green" value={formData.RSECharts} onChange={handleRSEChartsChange}>
+                <Text>Avez-vous mis en place une charte RSE? </Text>
+                <Stack spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
+                  {RSECharts.map((RSEChart, index) => (
+                    <Box key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
+                      <Radio value={RSEChart}>{RSEChart}</Radio>
+                    </Box>
+                  ))}
+                </Stack>
+              </RadioGroup>
             </Stack>
-          </CheckboxGroup>
-
-          <CheckboxGroup colorScheme="green" value={formData.ODDs} onChange={handleOddChange}>
-            <Text>Parmis les ODD suivants relatif à l&rsquo;aspect sociétal sur lesquels travaillez-vous déja ?</Text>
-            <Wrap spacing={0.5}>
-              {ODDs.map((ODD, index) => (
-                <WrapItem key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
-                  <Checkbox value={ODD}>{ODD}</Checkbox>
-                </WrapItem>
-              ))}
-            </Wrap>
-          </CheckboxGroup>
-        </VStack>
-      </Box>
-    </Flex>
+            <Stack>
+              <CheckboxGroup colorScheme="green" value={formData.ODDs} onChange={handleOddChange}>
+                <Text>
+                  Parmis les ODD suivants relatif à l&rsquo;aspect sociétal sur lesquels travaillez-vous déja ?
+                </Text>
+                <Wrap spacing={0.5}>
+                  {ODDs.map((ODD, index) => (
+                    <WrapItem key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
+                      <Checkbox value={ODD}>{ODD}</Checkbox>
+                    </WrapItem>
+                  ))}
+                </Wrap>
+              </CheckboxGroup>
+            </Stack>
+          </VStack>
+        </>
+      ) : (
+        <>
+        <Center>
+          <HStack>
+          <Heading>
+            Vous avez remplis toutes les informations. Votre projet est maintenant en cours d’examen ! 🎉
+          </Heading>
+          <Link href="/">
+            <Button colorScheme="blue">Retour sur la page d’accueil</Button>
+          </Link>
+          </HStack>
+        </Center>
+          
+        </>
+      )}
+    </Box>
   );
 };
 

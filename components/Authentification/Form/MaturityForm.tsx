@@ -87,12 +87,12 @@ const Maturity = ({ formData, setFormData }: any) => {
   };
 
   return (
-    <Flex w="100%" backgroundRepeat="no-repeat" backgroundSize="100%" flexDirection="column">
-      <Box w="100%" mx="auto">
-        <Heading as="h1" mb={4}>
-          Votre maturité digitale & Web3
-        </Heading>
-        <VStack align="stretch">
+    <Box w="100%" mx="auto">
+      <Heading as="h1" mb={8}>
+        Votre maturité digitale & Web3
+      </Heading>
+      <VStack align="stretch" gap="2rem" fontSize="18px">
+        <Stack>
           <RadioGroup
             colorScheme="green"
             onChange={handleBlockchainKnowledgeScaleChange}
@@ -100,14 +100,28 @@ const Maturity = ({ formData, setFormData }: any) => {
           >
             <Text>Sur une échelle de 0 à 5 comment situez vous vos connaissances sur la blockchain ?</Text>
             <Stack alignContent="center" spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
-              <Radio value="0">0</Radio>
-              <Radio value="1">1</Radio>
-              <Radio value="2">2</Radio>
-              <Radio value="3">3</Radio>
-              <Radio value="4">4</Radio>
-              <Radio value="5">5</Radio>
+              <Radio size="lg" value="0">
+                0
+              </Radio>
+              <Radio size="lg" value="1">
+                1
+              </Radio>
+              <Radio size="lg" value="2">
+                2
+              </Radio>
+              <Radio size="lg" value="3">
+                3
+              </Radio>
+              <Radio size="lg" value="4">
+                4
+              </Radio>
+              <Radio size="lg" value="5">
+                5
+              </Radio>
             </Stack>
           </RadioGroup>
+        </Stack>
+        <Stack>
           <CheckboxGroup
             colorScheme="green"
             value={formData.blockchainKnowledges}
@@ -122,22 +136,21 @@ const Maturity = ({ formData, setFormData }: any) => {
               ))}
             </Wrap>
           </CheckboxGroup>
-          <CheckboxGroup colorScheme="green" value={formData.securityAudits} onChange={handleSecurityAuditsChange}>
+        </Stack>
+        <Stack>
+          <RadioGroup colorScheme="green" value={formData.securityAudits} onChange={handleSecurityAuditsChange}>
             <Text>Avez vous déja réalisé des audits de cyber-sécurité pour votre société ?</Text>
             <Wrap spacing="0.5rem" maxW="100%" direction={["column", "row"]}>
               {securityAudits.map((securityAudit, index) => (
                 <WrapItem key={index} maxW="100%" border="1px" padding="0.5rem" borderRadius={8}>
-                  <Checkbox value={securityAudit}>{securityAudit}</Checkbox>
+                  <Radio value={securityAudit}>{securityAudit}</Radio>
                 </WrapItem>
               ))}
             </Wrap>
-          </CheckboxGroup>
-          <Button onClick={handleTestFormData} colorScheme="blue">
-            Enregistrer
-          </Button>
-        </VStack>
-      </Box>
-    </Flex>
+          </RadioGroup>
+        </Stack>
+      </VStack>
+    </Box>
   );
 };
 
