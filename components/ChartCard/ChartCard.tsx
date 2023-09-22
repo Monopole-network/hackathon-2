@@ -1,10 +1,4 @@
 import style from "./ChartCard.module.css";
-import TagCategory from "../TagCategory/TagCategory";
-import CryptoIcon from "../CryptoIcon/CryptoIcon";
-import { Media } from "../../globalTypes";
-import { useEffect, useState } from "react";
-import { Company } from "../../globalTypes";
-import { COMPANIES_URL } from "../../routes";
 import { DoughnutChart } from "../DoughnutChart";
 import SeeAllButton from "../SeeAllButton";
 
