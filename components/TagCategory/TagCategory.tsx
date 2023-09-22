@@ -45,8 +45,8 @@ export default function TagCategory({ categoryID, isSelected, filters, setFilter
     <div
       onClick={handleClick}
       style={{
-        backgroundColor: isSelected ? "transparent" : category?.color,
-        ...(isSelected && { border: `1px solid ${category?.color}` }),
+        backgroundColor: isSelected ? category?.color : "transparent",
+        ...(!isSelected && { border: `1px solid ${category?.color}` }),
       }}
       className={large ? `${style["tag-category"]} ${style["tag-category--large"]}` : style["tag-category"]}
     >
